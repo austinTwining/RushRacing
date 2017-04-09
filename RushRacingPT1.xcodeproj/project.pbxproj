@@ -1,0 +1,549 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F82D5D151E99C5CD005803E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F82D5D141E99C5CD005803E0 /* main.m */; };
+		F82D5D181E99C5CD005803E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F82D5D171E99C5CD005803E0 /* AppDelegate.m */; };
+		F82D5D1B1E99C5CD005803E0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F82D5D1A1E99C5CD005803E0 /* ViewController.m */; };
+		F82D5D1E1E99C5CD005803E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F82D5D1C1E99C5CD005803E0 /* Main.storyboard */; };
+		F82D5D211E99C5CD005803E0 /* RushRacingPT1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F82D5D1F1E99C5CD005803E0 /* RushRacingPT1.xcdatamodeld */; };
+		F82D5D231E99C5CD005803E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F82D5D221E99C5CD005803E0 /* Assets.xcassets */; };
+		F82D5D261E99C5CD005803E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F82D5D241E99C5CD005803E0 /* LaunchScreen.storyboard */; };
+		F82D5D311E99C5CD005803E0 /* RushRacingPT1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = F82D5D301E99C5CD005803E0 /* RushRacingPT1Tests.m */; };
+		F82D5D3C1E99C5CD005803E0 /* RushRacingPT1UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F82D5D3B1E99C5CD005803E0 /* RushRacingPT1UITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F82D5D2D1E99C5CD005803E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F82D5D081E99C5CD005803E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F82D5D0F1E99C5CD005803E0;
+			remoteInfo = RushRacingPT1;
+		};
+		F82D5D381E99C5CD005803E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F82D5D081E99C5CD005803E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F82D5D0F1E99C5CD005803E0;
+			remoteInfo = RushRacingPT1;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F82D5D101E99C5CD005803E0 /* RushRacingPT1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RushRacingPT1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82D5D141E99C5CD005803E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F82D5D161E99C5CD005803E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F82D5D171E99C5CD005803E0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F82D5D191E99C5CD005803E0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F82D5D1A1E99C5CD005803E0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F82D5D1D1E99C5CD005803E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F82D5D201E99C5CD005803E0 /* RushRacingPT1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RushRacingPT1.xcdatamodel; sourceTree = "<group>"; };
+		F82D5D221E99C5CD005803E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F82D5D251E99C5CD005803E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F82D5D271E99C5CD005803E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F82D5D2C1E99C5CD005803E0 /* RushRacingPT1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RushRacingPT1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82D5D301E99C5CD005803E0 /* RushRacingPT1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RushRacingPT1Tests.m; sourceTree = "<group>"; };
+		F82D5D321E99C5CD005803E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F82D5D371E99C5CD005803E0 /* RushRacingPT1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RushRacingPT1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82D5D3B1E99C5CD005803E0 /* RushRacingPT1UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RushRacingPT1UITests.m; sourceTree = "<group>"; };
+		F82D5D3D1E99C5CD005803E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F82D5D0D1E99C5CD005803E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82D5D291E99C5CD005803E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82D5D341E99C5CD005803E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F82D5D071E99C5CD005803E0 = {
+			isa = PBXGroup;
+			children = (
+				F82D5D121E99C5CD005803E0 /* RushRacingPT1 */,
+				F82D5D2F1E99C5CD005803E0 /* RushRacingPT1Tests */,
+				F82D5D3A1E99C5CD005803E0 /* RushRacingPT1UITests */,
+				F82D5D111E99C5CD005803E0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F82D5D111E99C5CD005803E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F82D5D101E99C5CD005803E0 /* RushRacingPT1.app */,
+				F82D5D2C1E99C5CD005803E0 /* RushRacingPT1Tests.xctest */,
+				F82D5D371E99C5CD005803E0 /* RushRacingPT1UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F82D5D121E99C5CD005803E0 /* RushRacingPT1 */ = {
+			isa = PBXGroup;
+			children = (
+				F82D5D161E99C5CD005803E0 /* AppDelegate.h */,
+				F82D5D171E99C5CD005803E0 /* AppDelegate.m */,
+				F82D5D191E99C5CD005803E0 /* ViewController.h */,
+				F82D5D1A1E99C5CD005803E0 /* ViewController.m */,
+				F82D5D1C1E99C5CD005803E0 /* Main.storyboard */,
+				F82D5D221E99C5CD005803E0 /* Assets.xcassets */,
+				F82D5D241E99C5CD005803E0 /* LaunchScreen.storyboard */,
+				F82D5D271E99C5CD005803E0 /* Info.plist */,
+				F82D5D1F1E99C5CD005803E0 /* RushRacingPT1.xcdatamodeld */,
+				F82D5D131E99C5CD005803E0 /* Supporting Files */,
+			);
+			path = RushRacingPT1;
+			sourceTree = "<group>";
+		};
+		F82D5D131E99C5CD005803E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F82D5D141E99C5CD005803E0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F82D5D2F1E99C5CD005803E0 /* RushRacingPT1Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F82D5D301E99C5CD005803E0 /* RushRacingPT1Tests.m */,
+				F82D5D321E99C5CD005803E0 /* Info.plist */,
+			);
+			path = RushRacingPT1Tests;
+			sourceTree = "<group>";
+		};
+		F82D5D3A1E99C5CD005803E0 /* RushRacingPT1UITests */ = {
+			isa = PBXGroup;
+			children = (
+				F82D5D3B1E99C5CD005803E0 /* RushRacingPT1UITests.m */,
+				F82D5D3D1E99C5CD005803E0 /* Info.plist */,
+			);
+			path = RushRacingPT1UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F82D5D0F1E99C5CD005803E0 /* RushRacingPT1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F82D5D401E99C5CD005803E0 /* Build configuration list for PBXNativeTarget "RushRacingPT1" */;
+			buildPhases = (
+				F82D5D0C1E99C5CD005803E0 /* Sources */,
+				F82D5D0D1E99C5CD005803E0 /* Frameworks */,
+				F82D5D0E1E99C5CD005803E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RushRacingPT1;
+			productName = RushRacingPT1;
+			productReference = F82D5D101E99C5CD005803E0 /* RushRacingPT1.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F82D5D2B1E99C5CD005803E0 /* RushRacingPT1Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F82D5D431E99C5CD005803E0 /* Build configuration list for PBXNativeTarget "RushRacingPT1Tests" */;
+			buildPhases = (
+				F82D5D281E99C5CD005803E0 /* Sources */,
+				F82D5D291E99C5CD005803E0 /* Frameworks */,
+				F82D5D2A1E99C5CD005803E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F82D5D2E1E99C5CD005803E0 /* PBXTargetDependency */,
+			);
+			name = RushRacingPT1Tests;
+			productName = RushRacingPT1Tests;
+			productReference = F82D5D2C1E99C5CD005803E0 /* RushRacingPT1Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F82D5D361E99C5CD005803E0 /* RushRacingPT1UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F82D5D461E99C5CD005803E0 /* Build configuration list for PBXNativeTarget "RushRacingPT1UITests" */;
+			buildPhases = (
+				F82D5D331E99C5CD005803E0 /* Sources */,
+				F82D5D341E99C5CD005803E0 /* Frameworks */,
+				F82D5D351E99C5CD005803E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F82D5D391E99C5CD005803E0 /* PBXTargetDependency */,
+			);
+			name = RushRacingPT1UITests;
+			productName = RushRacingPT1UITests;
+			productReference = F82D5D371E99C5CD005803E0 /* RushRacingPT1UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F82D5D081E99C5CD005803E0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Austin-James Twining";
+				TargetAttributes = {
+					F82D5D0F1E99C5CD005803E0 = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+					};
+					F82D5D2B1E99C5CD005803E0 = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F82D5D0F1E99C5CD005803E0;
+					};
+					F82D5D361E99C5CD005803E0 = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F82D5D0F1E99C5CD005803E0;
+					};
+				};
+			};
+			buildConfigurationList = F82D5D0B1E99C5CD005803E0 /* Build configuration list for PBXProject "RushRacingPT1" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F82D5D071E99C5CD005803E0;
+			productRefGroup = F82D5D111E99C5CD005803E0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F82D5D0F1E99C5CD005803E0 /* RushRacingPT1 */,
+				F82D5D2B1E99C5CD005803E0 /* RushRacingPT1Tests */,
+				F82D5D361E99C5CD005803E0 /* RushRacingPT1UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F82D5D0E1E99C5CD005803E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82D5D261E99C5CD005803E0 /* LaunchScreen.storyboard in Resources */,
+				F82D5D231E99C5CD005803E0 /* Assets.xcassets in Resources */,
+				F82D5D1E1E99C5CD005803E0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82D5D2A1E99C5CD005803E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82D5D351E99C5CD005803E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F82D5D0C1E99C5CD005803E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82D5D1B1E99C5CD005803E0 /* ViewController.m in Sources */,
+				F82D5D211E99C5CD005803E0 /* RushRacingPT1.xcdatamodeld in Sources */,
+				F82D5D181E99C5CD005803E0 /* AppDelegate.m in Sources */,
+				F82D5D151E99C5CD005803E0 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82D5D281E99C5CD005803E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82D5D311E99C5CD005803E0 /* RushRacingPT1Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82D5D331E99C5CD005803E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82D5D3C1E99C5CD005803E0 /* RushRacingPT1UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F82D5D2E1E99C5CD005803E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F82D5D0F1E99C5CD005803E0 /* RushRacingPT1 */;
+			targetProxy = F82D5D2D1E99C5CD005803E0 /* PBXContainerItemProxy */;
+		};
+		F82D5D391E99C5CD005803E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F82D5D0F1E99C5CD005803E0 /* RushRacingPT1 */;
+			targetProxy = F82D5D381E99C5CD005803E0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F82D5D1C1E99C5CD005803E0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F82D5D1D1E99C5CD005803E0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F82D5D241E99C5CD005803E0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F82D5D251E99C5CD005803E0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F82D5D3E1E99C5CD005803E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F82D5D3F1E99C5CD005803E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F82D5D411E99C5CD005803E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RushRacingPT1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.twining.PT.RushRacingPT1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F82D5D421E99C5CD005803E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RushRacingPT1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.twining.PT.RushRacingPT1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F82D5D441E99C5CD005803E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RushRacingPT1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.twining.PT.RushRacingPT1Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RushRacingPT1.app/RushRacingPT1";
+			};
+			name = Debug;
+		};
+		F82D5D451E99C5CD005803E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RushRacingPT1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.twining.PT.RushRacingPT1Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RushRacingPT1.app/RushRacingPT1";
+			};
+			name = Release;
+		};
+		F82D5D471E99C5CD005803E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RushRacingPT1UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.twining.PT.RushRacingPT1UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RushRacingPT1;
+			};
+			name = Debug;
+		};
+		F82D5D481E99C5CD005803E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RushRacingPT1UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.twining.PT.RushRacingPT1UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RushRacingPT1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F82D5D0B1E99C5CD005803E0 /* Build configuration list for PBXProject "RushRacingPT1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F82D5D3E1E99C5CD005803E0 /* Debug */,
+				F82D5D3F1E99C5CD005803E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F82D5D401E99C5CD005803E0 /* Build configuration list for PBXNativeTarget "RushRacingPT1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F82D5D411E99C5CD005803E0 /* Debug */,
+				F82D5D421E99C5CD005803E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F82D5D431E99C5CD005803E0 /* Build configuration list for PBXNativeTarget "RushRacingPT1Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F82D5D441E99C5CD005803E0 /* Debug */,
+				F82D5D451E99C5CD005803E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F82D5D461E99C5CD005803E0 /* Build configuration list for PBXNativeTarget "RushRacingPT1UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F82D5D471E99C5CD005803E0 /* Debug */,
+				F82D5D481E99C5CD005803E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F82D5D1F1E99C5CD005803E0 /* RushRacingPT1.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F82D5D201E99C5CD005803E0 /* RushRacingPT1.xcdatamodel */,
+			);
+			currentVersion = F82D5D201E99C5CD005803E0 /* RushRacingPT1.xcdatamodel */;
+			path = RushRacingPT1.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F82D5D081E99C5CD005803E0 /* Project object */;
+}
