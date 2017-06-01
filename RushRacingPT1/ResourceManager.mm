@@ -10,40 +10,43 @@
 
 @implementation ResourceManager
 
-+(Shader*) loadShader:(std::string) name : (NSString *)vertexPath : (NSString *)fragmentPath{
+static NSMutableDictionary* Shaders;
+static NSMutableDictionary* Textures;
+
++(Shader*) loadShader: (NSString*) name vertexPath: (NSString*) vertexPath fragmentPath: (NSString*) fragmentPath{
     Shader* shader = [[Shader alloc] init];
     
     [shader compile:(GLchar *)[[NSString stringWithContentsOfFile:vertexPath encoding:NSUTF8StringEncoding error:nil] UTF8String] :(GLchar *)[[NSString stringWithContentsOfFile:fragmentPath encoding:NSUTF8StringEncoding error:nil] UTF8String]];
     
-    Shaders[name] = shader;
+    if(!Shaders) Shaders = [[NSMutableDictionary alloc] init];
     
+    //[Shaders setValue:shader forKey:name];
+    Shaders[name] = shader;
+
     return shader;
 }
 
-+(Shader*) getShader: (std::string) name{ return Shaders[name]; }
++(Shader*) getShader: (NSString*) name{ return Shaders[name]; }
 
-+(Texture*) loadTexture: (std::string) name : (NSString*) path{
++(Texture*) loadTexture: (NSString*) name path: (NSString*) path{
     CGImageRef imageReference = [[UIImage imageNamed:path] CGImage];
     
     GLKTextureInfo* textureInfo = [GLKTextureLoader textureWithCGImage:imageReference options:nil error:NULL];
     
     Texture* texture = [[Texture alloc] init:textureInfo];
     
+    if(!Textures) Textures = [[NSMutableDictionary alloc] init];
+    
+    //[Textures setValue:texture forKey:name];
     Textures[name] = texture;
     
     return texture;
 }
 
-+(Texture*) getTexture: (std::string) name{ return Textures[name]; }
++(Texture*) getTexture: (NSString*) name{ return Textures[name]; }
 
 +(void) clear{
-    /*for(Shader* s in Textures){
-        glDeleteProgram(s.programID);
-    }
-    for(Texture* t in Shaders){
-        GLuint name = [t getTextureInfo].name;
-        glDeleteTextures(1, &name);
-    }*/
+    
 }
 
 @end

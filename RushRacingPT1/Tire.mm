@@ -83,6 +83,14 @@
     return self;
 }
 
+-(void) setCharacteristics: (tireProperties) props{
+    //set properties
+    _maxForwardSpeed = props.maxForwardSpeed;
+    _maxBackwardSpeed = props.maxBackwardSpeed;
+    _maxDriveForce = props.maxDriveForce;
+    _maxLateralImpulse = props.maxLateralImpulse;
+}
+
 -(void) update{
     //update friction
     b2Vec2 impulse = m_body->GetMass() * -[self getLateralVelocity];

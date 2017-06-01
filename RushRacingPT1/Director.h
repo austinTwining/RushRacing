@@ -11,11 +11,16 @@
 #import "Artist.h"
 #import "Scene.h"
 
+@class Scene;
+
 @interface Director : NSObject
 
--(id) init;
++(void) setCurrentScene : (NSString*) name;
 
--(void) update;
--(void) draw : (Artist*) artist;
++(void) addScene : (Scene*) scene withName: (NSString*) name shouldBeCurrent: (GLboolean) setCurrent;
++(void) deleteScene : (NSString*) name;
+
++(void) update;
++(void) draw : (Artist*) artist;
 
 @end

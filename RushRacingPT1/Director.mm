@@ -8,37 +8,31 @@
 
 #import "Director.h"
 
-enum
-{
-    MENU_SCENE,
-    PLAY_SCENE,
-    NUM_SCENES
-};
-
-
-@interface Director (){
-    Scene* scenes[NUM_SCENES];
-    int currentScene;
-}
-
-@end
-
 @implementation Director
 
--(id) init{
-    self = [super init];
-    
-    if(self){
-    }
-    
-    return self;
+static NSMutableDictionary* Scenes;
+static NSString* currentScene;
+
++(void) setCurrentScene : (NSString*) name{
+    currentScene = name;
+    [Scenes[currentScene] initialize];
 }
 
--(void) update{
-    [scenes[currentScene] update];
++(void) addScene:(Scene*) scene withName: (NSString*) name shouldBeCurrent: (GLboolean) setCurrent{
+    if(!Scenes) Scenes = [[NSMutableDictionary alloc] init];
+    Scenes[name] = scene;
+    if(setCurrent) [self setCurrentScene:name];
 }
--(void) draw : (Artist*) artist{
-    [scenes[currentScene] draw:artist];
++(void) deleteScene : (NSString*) name{
+    [Scenes[name] cleanup];
+    [Scenes removeObjectForKey:name];
+}
+
++(void) update{
+    [Scenes[currentScene] update];
+}
++(void) draw : (Artist*) artist{
+    [Scenes[currentScene] draw:artist];
 }
 
 @end

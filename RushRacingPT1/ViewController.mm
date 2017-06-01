@@ -15,17 +15,12 @@
 #import "Director.h"
 #import "ResourceManager.h"
 
-#define PTM 32
+#import "TestScene.h"
 
 // screen dim in meters h: 23.4375 w: 41.6875
 
 @interface ViewController (){
-    
     Artist* artist;
-    
-    Director* director;
-    
-    b2World* m_world;
     
     int halfScreenWidth;
     int halfScreenHeight;
@@ -52,48 +47,39 @@
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
-    [ResourceManager loadShader:"main" :[[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"] :[[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"fsh"]];
+    [ResourceManager loadShader:@"main" vertexPath:[[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"] fragmentPath:[[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"fsh"]];
     
-    [[ResourceManager getShader:"main"] start];
+    [[ResourceManager getShader:@"main"] start];
     
-    [[ResourceManager getShader:"main"] setMatrix4:"projection" :GLKMatrix4MakeOrtho(0, self.view.bounds.size.width*self.view.contentScaleFactor, self.view.bounds.size.height*self.view.contentScaleFactor, 0, -1, 1)];
+    [[ResourceManager getShader:@"main"] setMatrix4:"projection" :GLKMatrix4MakeOrtho(0, self.view.bounds.size.width*self.view.contentScaleFactor, self.view.bounds.size.height*self.view.contentScaleFactor, 0, -1, 1)];
     
-    [[ResourceManager getShader:"main"] stop];
+    [[ResourceManager getShader:@"main"] stop];
     
     halfScreenWidth = (self.view.bounds.size.width*self.view.contentScaleFactor)/2;
     halfScreenHeight = (self.view.bounds.size.height*self.view.contentScaleFactor)/2;
     
     NSLog(@"X: %f | Y: %f", self.view.bounds.size.width*self.view.contentScaleFactor, self.view.bounds.size.height*self.view.contentScaleFactor);
     
-    artist = [[Artist alloc] initWithShader: [ResourceManager getShader:"main"]];
+    artist = [[Artist alloc] initWithShader: [ResourceManager getShader:@"main"] halfScreenWidth:halfScreenWidth halfScreenHeight:halfScreenHeight];
     
-    [ResourceManager loadTexture:"test" :@"Z9-Proton-Orange.png"];
+    Scene* s = [[TestScene alloc] init];
     
-    m_world = new b2World(b2Vec2(0,0));
+    [Director addScene:s withName:@"testScene" shouldBeCurrent:true];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
-    delete m_world;
 }
 
 -(void) update{
-    float32 timeStep = 1.0 / (float) self.preferredFramesPerSecond;      //the length of time passed to simulate (seconds)
-    int32 velocityIterations = 8;   //how strongly to correct velocity
-    int32 positionIterations = 3;   //how strongly to correct position
-    
-    [artist updateCameraPosition:GLKVector2Make(0 - halfScreenWidth, 0 - halfScreenHeight)];
-    
-    m_world->Step( timeStep, velocityIterations, positionIterations);
-    //NSLog(@"FPS: %ld", (long)self.framesPerSecond);
+    [Director update];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect{
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
-    [artist drawTexture:[ResourceManager getTexture:"test"] :GLKVector2Make(0, 0) :GLKVector2Make([ResourceManager getTexture:"test"].Width, [ResourceManager getTexture:"test"].Height) :0];
+    [Director draw:artist];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

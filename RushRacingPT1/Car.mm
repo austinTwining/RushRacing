@@ -11,21 +11,29 @@
 #define DEGTORAD 0.0174532925199432957f
 #define RADTODEG 57.295779513082320876f
 
+// maxPower, maxForwardSpeed, maxBackwardSpeed, maxLateralImpulse
+CarProperties cProps[] = {
+    {300.0f, 97.0f, 20.0f, 3.0f} //Z9-Proton
+};
+
 @interface Car(){
     b2Body* m_body;
     
     b2RevoluteJoint* frJoint;
     b2RevoluteJoint* flJoint;
+    
+    b2World* m_world;
 }
 
 @end
 
 @implementation Car
 
--(id) initWithWorld:(b2World *)world{
+-(id) initWithWorld:(b2World *)world type:(CarType)type{
     self = [super init];
     if(self){
         _tires = [NSMutableArray arrayWithCapacity:4];
+        m_world = world;
         
         _direction = STRAIGHT;
         
@@ -60,29 +68,35 @@
         jointDef.upperAngle = 0;//...the joint will not move
         jointDef.localAnchorB.SetZero();//joint anchor in tire is always center
         
+        tireProperties tProps;
+        tProps.maxForwardSpeed = cProps[type].maxForwardSpeed;
+        tProps.maxBackwardSpeed = cProps[type].maxBackwardSpeed;
+        tProps.maxDriveForce = cProps[type].maxPower;
+        tProps.maxLateralImpulse = cProps[type].maxLateralImpulse;
+        
         //back left tire
-        Tire* tire = [[Tire alloc] initWithWorld:world];
+        Tire* tire = [[Tire alloc] initWithWorld:world properties:tProps];
         jointDef.bodyB = [tire getBody];
         jointDef.localAnchorA.Set(-1.2, 2.25);
         world->CreateJoint( &jointDef );
         [_tires addObject:tire];
         
         //back right tire
-        tire = [[Tire alloc] initWithWorld:world];
+        tire = [[Tire alloc] initWithWorld:world properties:tProps];
         jointDef.bodyB = [tire getBody];
         jointDef.localAnchorA.Set(1.2, 2.25);
         world->CreateJoint( &jointDef );
         [_tires addObject:tire];
         
         //front left tire
-        tire = [[Tire alloc] initWithWorld:world];
+        tire = [[Tire alloc] initWithWorld:world properties:tProps];
         jointDef.bodyB = [tire getBody];
         jointDef.localAnchorA.Set(-1.2, -2.25);
         flJoint = (b2RevoluteJoint*)world->CreateJoint(&jointDef);
         [_tires addObject:tire];
         
         //front right tire
-        tire = [[Tire alloc] initWithWorld:world];
+        tire = [[Tire alloc] initWithWorld:world properties:tProps];
         jointDef.bodyB = [tire getBody];
         jointDef.localAnchorA.Set(1.3, -2.25);
         frJoint = (b2RevoluteJoint*)world->CreateJoint(&jointDef);

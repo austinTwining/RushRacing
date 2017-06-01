@@ -1,19 +1,19 @@
 //
-//  Scene.h
+//  TestScene.h
 //  RushRacingPT1
 //
-//  Created by Austin-James Twining on 2017-05-01.
+//  Created by Austin-James Twining on 2017-05-31.
 //  Copyright © 2017 Austin-James Twining. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#include <Box2D/Box2D.h>
 
-#import "Director.h"
-#import "ResourceManager.h"
+#import "Scene.h"
+#import "ViewController.h"
 
-@interface Scene : NSObject
+#import "Car.h"
 
--(id) init;
+@interface TestScene : Scene
 
 //load
 -(void) initialize;

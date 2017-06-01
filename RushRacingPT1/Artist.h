@@ -13,17 +13,22 @@
 #import "Texture.h"
 #import "Shader.h"
 
+#define PTM 32
+
 @interface Artist : NSObject
 
 @property (strong, nonatomic) Shader* shader;
 
+@property (assign) int halfScreenWidth;
+@property (assign) int halfScreenHeight;
+
 @property (assign) GLKVector2 cameraPosition;
 
 -(id) initWithShader: (Shader*) shader;
+-(id) initWithShader:(Shader *)shader halfScreenWidth:(int) hWidth halfScreenHeight:(int) hHeight;
 
 -(void) updateCameraPosition: (GLfloat) x : (GLfloat) y;
--(void) updateCameraPosition: (GLKVector2) camPos;
 
--(void) drawTexture: (Texture*) tex : (GLKVector2) position : (GLKVector2) size : (GLfloat) rotation;
+-(void) drawTexture: (Texture*) tex position: (GLKVector2) position size: (GLKVector2) size rotation: (GLfloat) rotation;
 
 @end

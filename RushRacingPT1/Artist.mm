@@ -27,6 +27,19 @@
     return self;
 }
 
+-(id) initWithShader:(Shader *)shader halfScreenWidth:(int)hWidth halfScreenHeight:(int)hHeight{
+    self = [super init];
+    
+    if(self){
+        _shader = shader;
+        _halfScreenWidth = hWidth;
+        _halfScreenHeight = hHeight;
+        [self initDrawData];
+    }
+    
+    return self;
+}
+
 -(void) initDrawData{
     GLuint VBO;
     GLuint EBO;
@@ -68,14 +81,10 @@
 }
 
 -(void) updateCameraPosition: (GLfloat) x : (GLfloat) y{
-    _cameraPosition = GLKVector2Make(x, y);
+    _cameraPosition = GLKVector2Make(x - _halfScreenWidth, y - _halfScreenHeight);
 }
 
--(void) updateCameraPosition: (GLKVector2) camPos{
-    _cameraPosition = camPos;
-}
-
--(void) drawTexture:(Texture *)tex : (GLKVector2) position : (GLKVector2) size : (GLfloat) rotation{
+-(void) drawTexture:(Texture *)tex position: (GLKVector2) position size: (GLKVector2) size rotation: (GLfloat) rotation{
     [_shader start];
     GLKMatrix4 model;
     model = GLKMatrix4Translate(GLKMatrix4Identity, position.x, position.y, 0);

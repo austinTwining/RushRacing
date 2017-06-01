@@ -9,7 +9,24 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Artist.h"
+#import "ResourceManager.h"
+
 #import "Tire.h"
+
+typedef struct {
+    
+    float maxPower;
+    float maxForwardSpeed;
+    float maxBackwardSpeed;
+    float maxLateralImpulse;
+    
+}CarProperties;
+
+typedef enum {
+    Z9_PROTON,
+    NUM_CARS
+}CarType;
 
 typedef enum {
     LEFT,
@@ -22,12 +39,9 @@ typedef enum {
 
 @property (strong, nonatomic) NSMutableArray* tires;
 
-@property (assign) tireProperties frontTireProps;
-@property (assign) tireProperties backTireProps;
-
 @property (assign) Direction direction;
 
--(id) initWithWorld: (b2World*) world;
+-(id) initWithWorld: (b2World*) world type:(CarType) type;
 
 -(void) update;
 

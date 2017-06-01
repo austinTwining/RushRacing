@@ -11,19 +11,13 @@
 #import "Shader.h"
 #import "Texture.h"
 
-#include <map>
-#include <string>
-
-static std::map<std::string, Shader*> Shaders;
-static std::map<std::string, Texture*> Textures;
-
 @interface ResourceManager : NSObject
 
-+(Shader*) loadShader: (std::string) name : (NSString*) vertexPath : (NSString*) fragmentPath;
-+(Shader*) getShader: (std::string) name;
++(Shader*) loadShader: (NSString*) name vertexPath: (NSString*) vertexPath fragmentPath: (NSString*) fragmentPath;
++(Shader*) getShader: (NSString*) name;
 
-+(Texture*) loadTexture: (std::string) name : (NSString*) path;
-+(Texture*) getTexture: (std::string) name;
++(Texture*) loadTexture: (NSString*) name path: (NSString*) path;
++(Texture*) getTexture: (NSString*) name;
 
 +(void) clear;
 

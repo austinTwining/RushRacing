@@ -27,6 +27,8 @@ typedef struct{
 -(id) initWithWorld: (b2World*) world
          properties: (tireProperties) props;
 
+-(void) setCharacteristics: (tireProperties) props;
+
 -(void) update;
 
 -(b2Body*) getBody;
