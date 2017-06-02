@@ -88,8 +88,8 @@
     [_shader start];
     GLKMatrix4 model;
     model = GLKMatrix4Translate(GLKMatrix4Identity, position.x, position.y, 0);
-    model = GLKMatrix4Translate(model, -0.5f * size.x, -0.5f * size.y, 0);
     model = GLKMatrix4Rotate(model, rotation, 0, 0, 1);
+    model = GLKMatrix4Translate(model, -0.5f * size.x, -0.5f * size.y, 0);
     model = GLKMatrix4Scale(model, size.x, size.y, 1);
     
     GLKMatrix4 view = GLKMatrix4Translate(GLKMatrix4Identity, -_cameraPosition.x, -_cameraPosition.y, 0);

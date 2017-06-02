@@ -24,6 +24,7 @@
     
     //load needed textures
     [ResourceManager loadTexture:@"Z9-Proton" path:@"Z9-Proton-Orange.png"];
+    [ResourceManager loadTexture:@"Z9-ProtonTire" path:@"Z9-Proton-Tire.png"];
     
     
     car = [[Car alloc] initWithWorld:m_world type:Z9_PROTON];
@@ -35,6 +36,8 @@
     int32 velocityIterations = 8;   //how strongly to correct velocity
     int32 positionIterations = 3;   //how strongly to correct position
     
+    [car update];
+    
     m_world->Step( timeStep, velocityIterations, positionIterations);
     //NSLog(@"FPS: %ld", (long)self.framesPerSecond);
 }
@@ -42,10 +45,45 @@
 -(void) draw : (Artist*) artist{
     [artist updateCameraPosition:[car getBody]->GetPosition().x * PTM :[car getBody]->GetPosition().y * PTM];
     
+    /*for(int t = 0; t < 4; t++){
+        b2Body* tBody = [car.tires[t] getBody];
+        
+        [artist drawTexture:[ResourceManager getTexture:@"Z9-ProtonTire"]
+                   position:GLKVector2Make(tBody->GetPosition().x * PTM, tBody->GetPosition().y * PTM)
+                       size:GLKVector2Make([[ResourceManager getTexture:@"Z9-ProtonTire"] Width], [[ResourceManager getTexture:@"Z9-ProtonTire"] Height])
+                   rotation:tBody->GetAngle()];
+    }*/
+    
     [artist drawTexture:[ResourceManager getTexture:@"Z9-Proton"]
                position:GLKVector2Make([car getBody]->GetPosition().x * PTM, [car getBody]->GetPosition().y * PTM)
                    size:GLKVector2Make([[ResourceManager getTexture:@"Z9-Proton"] Width], [[ResourceManager getTexture:@"Z9-Proton"] Height])
                rotation:[car getBody]->GetAngle()];
+    
+    b2Body* tBody = [car.tires[0] getBody];
+    
+    [artist drawTexture:[ResourceManager getTexture:@"Z9-ProtonTire"]
+               position:GLKVector2Make(tBody->GetPosition().x * PTM, tBody->GetPosition().y * PTM)
+                   size:GLKVector2Make([[ResourceManager getTexture:@"Z9-ProtonTire"] Width], [[ResourceManager getTexture:@"Z9-ProtonTire"] Height])
+               rotation:tBody->GetAngle()];
+}
+
+//handle input
+-(void) onTouchBegan: (NSSet*) touch{
+    for(UITouch* t in touch){
+        CGPoint loc = [t locationInView:t.view];
+        if(loc.x < 333) car.direction = LEFT;
+        else if(loc.x > 333) car.direction = RIGHT;
+    }
+}
+-(void) onTouchMoved: (NSSet*) touch{
+    
+}
+-(void) onTouchEnded: (NSSet*) touch{
+    for(UITouch* t in touch){
+        CGPoint loc = [t locationInView:t.view];
+        if(loc.x < 666) car.direction = STRAIGHT;
+        else if(loc.x > 666) car.direction = STRAIGHT;
+    }
 }
 
 //unload

@@ -34,5 +34,15 @@ static NSString* currentScene;
 +(void) draw : (Artist*) artist{
     [Scenes[currentScene] draw:artist];
 }
+//handle input
++(void) onTouchBegan: (NSSet*) touch{
+    [Scenes[currentScene] onTouchBegan:touch];
+}
++(void) onTouchMoved: (NSSet*) touch{
+    [Scenes[currentScene] onTouchMoved:touch];
+}
++(void) onTouchEnded: (NSSet*) touch{
+    [Scenes[currentScene] onTouchEnded:touch];
+}
 
 @end

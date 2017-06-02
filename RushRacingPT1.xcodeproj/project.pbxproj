@@ -80,7 +80,7 @@
 		F8CCB9991EBF783B00B7D554 /* Z9-Proton-Orange.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CCB9981EBF783B00B7D554 /* Z9-Proton-Orange.png */; };
 		F8CCB9A31EBFA86600B7D554 /* Tire.mm in Sources */ = {isa = PBXBuildFile; fileRef = F8CCB9A21EBFA86600B7D554 /* Tire.mm */; };
 		F8CCB9A61EC207BB00B7D554 /* Car.mm in Sources */ = {isa = PBXBuildFile; fileRef = F8CCB9A51EC207BB00B7D554 /* Car.mm */; };
-		F8CCB9A81EC20F3B00B7D554 /* Z9-Proton Tire.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CCB9A71EC20F3B00B7D554 /* Z9-Proton Tire.png */; };
+		F8CCB9A81EC20F3B00B7D554 /* Z9-Proton-Tire.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CCB9A71EC20F3B00B7D554 /* Z9-Proton-Tire.png */; };
 		F8CCB9AC1EC3BA7D00B7D554 /* Sample.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CCB9AB1EC3BA7D00B7D554 /* Sample.png */; };
 /* End PBXBuildFile section */
 
@@ -239,7 +239,7 @@
 		F8CCB9A21EBFA86600B7D554 /* Tire.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Tire.mm; sourceTree = "<group>"; };
 		F8CCB9A41EC207BB00B7D554 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		F8CCB9A51EC207BB00B7D554 /* Car.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Car.mm; sourceTree = "<group>"; };
-		F8CCB9A71EC20F3B00B7D554 /* Z9-Proton Tire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Z9-Proton Tire.png"; sourceTree = "<group>"; };
+		F8CCB9A71EC20F3B00B7D554 /* Z9-Proton-Tire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Z9-Proton-Tire.png"; sourceTree = "<group>"; };
 		F8CCB9AB1EC3BA7D00B7D554 /* Sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sample.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -360,7 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				F8CCB9AB1EC3BA7D00B7D554 /* Sample.png */,
-				F8CCB9A71EC20F3B00B7D554 /* Z9-Proton Tire.png */,
+				F8CCB9A71EC20F3B00B7D554 /* Z9-Proton-Tire.png */,
 				F8CCB9981EBF783B00B7D554 /* Z9-Proton-Orange.png */,
 				F8CCB9961EBF68FD00B7D554 /* Z9-Proton-Orange@0.15x.png */,
 				F8CCB9941EBF66F900B7D554 /* Z9-Proton-Orange@0.25x.png */,
@@ -676,7 +676,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8A26E361E9D807700FE6DB6 /* Shader.fsh in Resources */,
-				F8CCB9A81EC20F3B00B7D554 /* Z9-Proton Tire.png in Resources */,
+				F8CCB9A81EC20F3B00B7D554 /* Z9-Proton-Tire.png in Resources */,
 				F82D5D261E99C5CD005803E0 /* LaunchScreen.storyboard in Resources */,
 				F82D5D231E99C5CD005803E0 /* Assets.xcassets in Resources */,
 				F8A26E301E9BCF9100FE6DB6 /* Pumpkin.jpg in Resources */,

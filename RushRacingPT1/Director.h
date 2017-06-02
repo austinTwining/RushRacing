@@ -23,4 +23,9 @@
 +(void) update;
 +(void) draw : (Artist*) artist;
 
+//handle input
++(void) onTouchBegan: (NSSet*) touch;
++(void) onTouchMoved: (NSSet*) touch;
++(void) onTouchEnded: (NSSet*) touch;
+
 @end

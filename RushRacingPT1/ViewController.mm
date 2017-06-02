@@ -83,22 +83,15 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /*// Enumerate over all the touches and draw a red dot on the screen where the touches were
-    [touches enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-        // Get a single touch and it's location
-        UITouch *touch = obj;
-        CGPoint touchPoint = [touch locationInView:self.view];
-        
-        if(touchPoint.x < 333) car.direction = LEFT;
-        else if(touchPoint.x > 333) car.direction = RIGHT;
-        else car.direction = STRAIGHT;
-        
-        NSLog(@"X: %f | Y: %f", touchPoint.x, touchPoint.y);
-    }];*/
+    [Director onTouchBegan:touches];
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    [Director onTouchMoved:touches];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    //car.direction = STRAIGHT;
+    [Director onTouchEnded:touches];
 }
 
 @end
