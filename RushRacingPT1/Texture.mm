@@ -18,10 +18,10 @@
         _textureInfo = texInfo;
         _Width = _textureInfo.width;
         _Height = _textureInfo.height;
-        glTexParameteri(_textureInfo.target, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        /*glTexParameteri(_textureInfo.target, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTexParameteri(_textureInfo.target, GL_TEXTURE_WRAP_T, GL_REPEAT);
         glTexParameteri(_textureInfo.target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameteri(_textureInfo.target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(_textureInfo.target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);*/
     }
     
     return self;

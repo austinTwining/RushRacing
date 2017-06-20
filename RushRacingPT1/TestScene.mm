@@ -23,9 +23,8 @@
     m_world = new b2World(b2Vec2(0,0));// init physics world
     
     //load needed textures
-    [ResourceManager loadTexture:@"Z9-Proton" path:@"Z9-Proton-Orange.png"];
     [ResourceManager loadTexture:@"Z9-ProtonTire" path:@"Z9-Proton-Tire.png"];
-    
+    [ResourceManager loadTexture:@"Z9-Proton" path:@"Z9-Proton-Orange.png"];
     
     car = [[Car alloc] initWithWorld:m_world type:Z9_PROTON];
 }
@@ -45,26 +44,23 @@
 -(void) draw : (Artist*) artist{
     [artist updateCameraPosition:[car getBody]->GetPosition().x * PTM :[car getBody]->GetPosition().y * PTM];
     
-    /*for(int t = 0; t < 4; t++){
+    Texture* tire = [ResourceManager getTexture:@"Z9-ProtonTire"];
+    
+    for(int t = 0; t < 4; t++){
         b2Body* tBody = [car.tires[t] getBody];
         
-        [artist drawTexture:[ResourceManager getTexture:@"Z9-ProtonTire"]
+        [artist drawTexture:tire
                    position:GLKVector2Make(tBody->GetPosition().x * PTM, tBody->GetPosition().y * PTM)
-                       size:GLKVector2Make([[ResourceManager getTexture:@"Z9-ProtonTire"] Width], [[ResourceManager getTexture:@"Z9-ProtonTire"] Height])
+                       size:GLKVector2Make([tire Width], [tire Height])
                    rotation:tBody->GetAngle()];
-    }*/
+    }
     
-    [artist drawTexture:[ResourceManager getTexture:@"Z9-Proton"]
+    Texture* cTex = [ResourceManager getTexture:@"Z9-Proton"];
+    
+    [artist drawTexture:cTex
                position:GLKVector2Make([car getBody]->GetPosition().x * PTM, [car getBody]->GetPosition().y * PTM)
-                   size:GLKVector2Make([[ResourceManager getTexture:@"Z9-Proton"] Width], [[ResourceManager getTexture:@"Z9-Proton"] Height])
+                   size:GLKVector2Make([cTex Width], [cTex Height])
                rotation:[car getBody]->GetAngle()];
-    
-    b2Body* tBody = [car.tires[0] getBody];
-    
-    [artist drawTexture:[ResourceManager getTexture:@"Z9-ProtonTire"]
-               position:GLKVector2Make(tBody->GetPosition().x * PTM, tBody->GetPosition().y * PTM)
-                   size:GLKVector2Make([[ResourceManager getTexture:@"Z9-ProtonTire"] Width], [[ResourceManager getTexture:@"Z9-ProtonTire"] Height])
-               rotation:tBody->GetAngle()];
 }
 
 //handle input

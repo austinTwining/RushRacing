@@ -97,11 +97,12 @@
     [_shader setMatrix4: "model" :model];
     [_shader setMatrix4: "view" :view];
     
-    glActiveTexture(GL_TEXTURE0);
     [tex bind];
+    glActiveTexture(GL_TEXTURE0);
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
+    [_shader stop];
 }
 
 @end

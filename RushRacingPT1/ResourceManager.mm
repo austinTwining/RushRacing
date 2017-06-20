@@ -20,8 +20,7 @@ static NSMutableDictionary* Textures;
     
     if(!Shaders) Shaders = [[NSMutableDictionary alloc] init];
     
-    //[Shaders setValue:shader forKey:name];
-    Shaders[name] = shader;
+    [Shaders setObject:shader forKey:name];
 
     return shader;
 }
@@ -30,15 +29,26 @@ static NSMutableDictionary* Textures;
 
 +(Texture*) loadTexture: (NSString*) name path: (NSString*) path{
     CGImageRef imageReference = [[UIImage imageNamed:path] CGImage];
+    NSError* error;
     
-    GLKTextureInfo* textureInfo = [GLKTextureLoader textureWithCGImage:imageReference options:nil error:NULL];
+    NSLog(@"GL Error = %u", glGetError());
+    GLKTextureInfo* textureInfo = [GLKTextureLoader textureWithCGImage:imageReference
+                                                               options:nil
+                                                                 error:&error];
+    if(error) NSLog(@"Error loading texture: %@", [error localizedDescription]);
+    
+    NSLog(@"imageRef: %p", imageReference);
+    
     
     Texture* texture = [[Texture alloc] init:textureInfo];
     
+    NSLog(@"width: %i height: %i data: %p", [texture Width], [texture Height], [texture getTextureInfo]);
+    
     if(!Textures) Textures = [[NSMutableDictionary alloc] init];
     
-    //[Textures setValue:texture forKey:name];
-    Textures[name] = texture;
+    [Textures setObject:texture forKey:name];
+    NSLog(@"adding key %@ to dictionary with pointer %p", name, Textures);
+    NSLog( @"%@", Textures );
     
     return texture;
 }

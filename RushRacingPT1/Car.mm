@@ -142,7 +142,7 @@ CarProperties cProps[] = {
     frJoint->SetLimits(newAngle, newAngle);
     
     float currentSpeed = b2Dot([self getForwardVelocity], m_body->GetWorldVector(b2Vec2(0,-1)));
-    NSLog(@"V: %f", [self mPerSecToKMPerHr:currentSpeed]); // print out speed in km/h
+    //NSLog(@"V: %f", [self mPerSecToKMPerHr:currentSpeed]); // print out speed in km/h
 }
 
 //method to convert m/s to km/h
