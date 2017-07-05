@@ -11,11 +11,6 @@
 #define DEGTORAD 0.0174532925199432957f
 #define RADTODEG 57.295779513082320876f
 
-// maxPower, maxForwardSpeed, maxBackwardSpeed, maxLateralImpulse
-CarProperties cProps[] = {
-    {300.0f, 97.0f, 20.0f, 3.0f} //Z9-Proton
-};
-
 @interface Car(){
     b2Body* m_body;
     
@@ -29,7 +24,7 @@ CarProperties cProps[] = {
 
 @implementation Car
 
--(id) initWithWorld:(b2World *)world type:(CarType)type{
+-(id) initWithWorld:(b2World *)world{
     self = [super init];
     if(self){
         _tires = [NSMutableArray arrayWithCapacity:4];
@@ -44,7 +39,7 @@ CarProperties cProps[] = {
         
         //shape definition
         b2PolygonShape polygonShape;
-        polygonShape.SetAsBox(2.25, 4.5); //a 2.25x4.5 rectangle
+        polygonShape.SetAsBox(1.12, 2.25); //a 2.25x4.5 rectangle
         
         //fixture definition
         b2FixtureDef myFixtureDef;
@@ -69,10 +64,10 @@ CarProperties cProps[] = {
         jointDef.localAnchorB.SetZero();//joint anchor in tire is always center
         
         tireProperties tProps;
-        tProps.maxForwardSpeed = cProps[type].maxForwardSpeed;
-        tProps.maxBackwardSpeed = cProps[type].maxBackwardSpeed;
-        tProps.maxDriveForce = cProps[type].maxPower;
-        tProps.maxLateralImpulse = cProps[type].maxLateralImpulse;
+        tProps.maxForwardSpeed = 100;
+        tProps.maxBackwardSpeed = 50;
+        tProps.maxDriveForce = 10;
+        tProps.maxLateralImpulse = 4;
         
         //back left tire
         Tire* tire = [[Tire alloc] initWithWorld:world properties:tProps];
@@ -142,7 +137,7 @@ CarProperties cProps[] = {
     frJoint->SetLimits(newAngle, newAngle);
     
     float currentSpeed = b2Dot([self getForwardVelocity], m_body->GetWorldVector(b2Vec2(0,-1)));
-    //NSLog(@"V: %f", [self mPerSecToKMPerHr:currentSpeed]); // print out speed in km/h
+    NSLog(@"V: %f", [self mPerSecToKMPerHr:currentSpeed]); // print out speed in km/h
 }
 
 //method to convert m/s to km/h

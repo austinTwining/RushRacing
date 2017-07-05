@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F816523B1F0C02A8006B6772 /* CarDef.mm in Sources */ = {isa = PBXBuildFile; fileRef = F816523A1F0C02A8006B6772 /* CarDef.mm */; };
+		F816523E1F0C1A73006B6772 /* testshape2.xml in Resources */ = {isa = PBXBuildFile; fileRef = F816523D1F0C1A73006B6772 /* testshape2.xml */; };
+		F81652411F0C1ABD006B6772 /* PhysicsParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = F81652401F0C1ABD006B6772 /* PhysicsParser.mm */; };
 		F82D5D151E99C5CD005803E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F82D5D141E99C5CD005803E0 /* main.m */; };
 		F82D5D181E99C5CD005803E0 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = F82D5D171E99C5CD005803E0 /* AppDelegate.mm */; };
 		F82D5D1B1E99C5CD005803E0 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F82D5D1A1E99C5CD005803E0 /* ViewController.mm */; };
@@ -20,6 +23,11 @@
 		F82D5D4D1E99C633005803E0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82D5D4C1E99C633005803E0 /* OpenGLES.framework */; };
 		F82D5D4F1E99C63B005803E0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82D5D4E1E99C63B005803E0 /* QuartzCore.framework */; };
 		F82D5D521E99C7F5005803E0 /* Artist.mm in Sources */ = {isa = PBXBuildFile; fileRef = F82D5D511E99C7F5005803E0 /* Artist.mm */; };
+		F860FAAE1F0C5EDA00122155 /* testshape2.plist in Resources */ = {isa = PBXBuildFile; fileRef = F860FAAD1F0C5EDA00122155 /* testshape2.plist */; };
+		F860FAB11F0C5F2A00122155 /* GB2ShapeCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = F860FAB01F0C5F2A00122155 /* GB2ShapeCache.mm */; };
+		F860FAC01F0D46D700122155 /* DebugDraw.mm in Sources */ = {isa = PBXBuildFile; fileRef = F860FABF1F0D46D700122155 /* DebugDraw.mm */; };
+		F860FAC51F0D4FC900122155 /* debug.fsh in Resources */ = {isa = PBXBuildFile; fileRef = F860FAC31F0D4FC900122155 /* debug.fsh */; };
+		F860FAC61F0D4FC900122155 /* debug.vsh in Resources */ = {isa = PBXBuildFile; fileRef = F860FAC41F0D4FC900122155 /* debug.vsh */; };
 		F8A26E301E9BCF9100FE6DB6 /* Pumpkin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F8A26E2F1E9BCF9100FE6DB6 /* Pumpkin.jpg */; };
 		F8A26E351E9D807700FE6DB6 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = F8A26E311E9D807700FE6DB6 /* Shader.vsh */; };
 		F8A26E361E9D807700FE6DB6 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = F8A26E321E9D807700FE6DB6 /* Shader.fsh */; };
@@ -102,6 +110,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F81652391F0C02A8006B6772 /* CarDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDef.h; sourceTree = "<group>"; };
+		F816523A1F0C02A8006B6772 /* CarDef.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CarDef.mm; sourceTree = "<group>"; };
+		F816523D1F0C1A73006B6772 /* testshape2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = testshape2.xml; sourceTree = "<group>"; };
+		F816523F1F0C1ABD006B6772 /* PhysicsParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsParser.h; sourceTree = "<group>"; };
+		F81652401F0C1ABD006B6772 /* PhysicsParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PhysicsParser.mm; sourceTree = "<group>"; };
 		F82D5D101E99C5CD005803E0 /* RushRacingPT1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RushRacingPT1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82D5D141E99C5CD005803E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F82D5D161E99C5CD005803E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -124,6 +137,14 @@
 		F82D5D4E1E99C63B005803E0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F82D5D501E99C7F5005803E0 /* Artist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artist.h; sourceTree = "<group>"; };
 		F82D5D511E99C7F5005803E0 /* Artist.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Artist.mm; sourceTree = "<group>"; };
+		F860FAAD1F0C5EDA00122155 /* testshape2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testshape2.plist; sourceTree = "<group>"; };
+		F860FAAF1F0C5F2A00122155 /* GB2ShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GB2ShapeCache.h; sourceTree = "<group>"; };
+		F860FAB01F0C5F2A00122155 /* GB2ShapeCache.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GB2ShapeCache.mm; sourceTree = "<group>"; };
+		F860FAB21F0C5F9400122155 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F860FABE1F0D469100122155 /* DebugDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugDraw.h; sourceTree = "<group>"; };
+		F860FABF1F0D46D700122155 /* DebugDraw.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DebugDraw.mm; sourceTree = "<group>"; };
+		F860FAC31F0D4FC900122155 /* debug.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = debug.fsh; sourceTree = "<group>"; };
+		F860FAC41F0D4FC900122155 /* debug.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = debug.vsh; sourceTree = "<group>"; };
 		F8A26E2F1E9BCF9100FE6DB6 /* Pumpkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Pumpkin.jpg; sourceTree = "<group>"; };
 		F8A26E311E9D807700FE6DB6 /* Shader.vsh */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = Shader.vsh; sourceTree = "<group>"; };
 		F8A26E321E9D807700FE6DB6 /* Shader.fsh */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = Shader.fsh; sourceTree = "<group>"; };
@@ -271,6 +292,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F816523C1F0C1A0E006B6772 /* CarDefs */ = {
+			isa = PBXGroup;
+			children = (
+				F860FAAD1F0C5EDA00122155 /* testshape2.plist */,
+				F816523D1F0C1A73006B6772 /* testshape2.xml */,
+			);
+			name = CarDefs;
+			sourceTree = "<group>";
+		};
 		F82D5D071E99C5CD005803E0 = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +346,8 @@
 				F8B4FDC01ED4EA1000DC3628 /* ResourceManager.mm */,
 				F8B4FDC21ED5C28F00DC3628 /* Texture.h */,
 				F8B4FDC31ED5C28F00DC3628 /* Texture.mm */,
+				F860FABE1F0D469100122155 /* DebugDraw.h */,
+				F860FABF1F0D46D700122155 /* DebugDraw.mm */,
 			);
 			path = RushRacingPT1;
 			sourceTree = "<group>";
@@ -349,6 +381,7 @@
 		F82D5D491E99C629005803E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F860FAB21F0C5F9400122155 /* CoreGraphics.framework */,
 				F82D5D4E1E99C63B005803E0 /* QuartzCore.framework */,
 				F82D5D4C1E99C633005803E0 /* OpenGLES.framework */,
 				F82D5D4A1E99C629005803E0 /* GLKit.framework */,
@@ -359,6 +392,7 @@
 		F8A26E2E1E9BCF7700FE6DB6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F816523C1F0C1A0E006B6772 /* CarDefs */,
 				F8CCB9AB1EC3BA7D00B7D554 /* Sample.png */,
 				F8CCB9A71EC20F3B00B7D554 /* Z9-Proton-Tire.png */,
 				F8CCB9981EBF783B00B7D554 /* Z9-Proton-Orange.png */,
@@ -372,6 +406,8 @@
 		F8A26E381E9D807E00FE6DB6 /* Shader */ = {
 			isa = PBXGroup;
 			children = (
+				F860FAC31F0D4FC900122155 /* debug.fsh */,
+				F860FAC41F0D4FC900122155 /* debug.vsh */,
 				F8A26E311E9D807700FE6DB6 /* Shader.vsh */,
 				F8A26E321E9D807700FE6DB6 /* Shader.fsh */,
 				F8A26E331E9D807700FE6DB6 /* Shader.h */,
@@ -560,10 +596,16 @@
 		F8CCB9901EBF664E00B7D554 /* Vehicle */ = {
 			isa = PBXGroup;
 			children = (
+				F860FAAF1F0C5F2A00122155 /* GB2ShapeCache.h */,
+				F860FAB01F0C5F2A00122155 /* GB2ShapeCache.mm */,
 				F8CCB9A11EBFA86600B7D554 /* Tire.h */,
 				F8CCB9A21EBFA86600B7D554 /* Tire.mm */,
 				F8CCB9A41EC207BB00B7D554 /* Car.h */,
 				F8CCB9A51EC207BB00B7D554 /* Car.mm */,
+				F81652391F0C02A8006B6772 /* CarDef.h */,
+				F816523A1F0C02A8006B6772 /* CarDef.mm */,
+				F816523F1F0C1ABD006B6772 /* PhysicsParser.h */,
+				F81652401F0C1ABD006B6772 /* PhysicsParser.mm */,
 			);
 			name = Vehicle;
 			sourceTree = "<group>";
@@ -676,12 +718,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8A26E361E9D807700FE6DB6 /* Shader.fsh in Resources */,
+				F860FAC61F0D4FC900122155 /* debug.vsh in Resources */,
 				F8CCB9A81EC20F3B00B7D554 /* Z9-Proton-Tire.png in Resources */,
 				F82D5D261E99C5CD005803E0 /* LaunchScreen.storyboard in Resources */,
 				F82D5D231E99C5CD005803E0 /* Assets.xcassets in Resources */,
+				F816523E1F0C1A73006B6772 /* testshape2.xml in Resources */,
 				F8A26E301E9BCF9100FE6DB6 /* Pumpkin.jpg in Resources */,
+				F860FAAE1F0C5EDA00122155 /* testshape2.plist in Resources */,
 				F8CCB9971EBF68FD00B7D554 /* Z9-Proton-Orange@0.15x.png in Resources */,
 				F82D5D1E1E99C5CD005803E0 /* Main.storyboard in Resources */,
+				F860FAC51F0D4FC900122155 /* debug.fsh in Resources */,
 				F8CCB9AC1EC3BA7D00B7D554 /* Sample.png in Resources */,
 				F8A26E351E9D807700FE6DB6 /* Shader.vsh in Resources */,
 				F8CCB9991EBF783B00B7D554 /* Z9-Proton-Orange.png in Resources */,
@@ -725,8 +771,10 @@
 				F8A26EC71E9D9B8800FE6DB6 /* b2PolygonContact.cpp in Sources */,
 				F8A26ED21E9D9B8800FE6DB6 /* b2WeldJoint.cpp in Sources */,
 				F8A26EA81E9D9B8700FE6DB6 /* b2CollideCircle.cpp in Sources */,
+				F860FAC01F0D46D700122155 /* DebugDraw.mm in Sources */,
 				F82D5D211E99C5CD005803E0 /* RushRacingPT1.xcdatamodeld in Sources */,
 				F8A26EA91E9D9B8700FE6DB6 /* b2CollideEdge.cpp in Sources */,
+				F81652411F0C1ABD006B6772 /* PhysicsParser.mm in Sources */,
 				F8A26ECF1E9D9B8800FE6DB6 /* b2PulleyJoint.cpp in Sources */,
 				F8A26EC61E9D9B8800FE6DB6 /* b2PolygonAndCircleContact.cpp in Sources */,
 				F8A26EC81E9D9B8800FE6DB6 /* b2DistanceJoint.cpp in Sources */,
@@ -750,6 +798,7 @@
 				F8A26EB01E9D9B8800FE6DB6 /* b2CircleShape.cpp in Sources */,
 				F8A26EBA1E9D9B8800FE6DB6 /* b2ContactManager.cpp in Sources */,
 				F8A26EB31E9D9B8800FE6DB6 /* b2BlockAllocator.cpp in Sources */,
+				F816523B1F0C02A8006B6772 /* CarDef.mm in Sources */,
 				F82D5D151E99C5CD005803E0 /* main.m in Sources */,
 				F8A26ECC1E9D9B8800FE6DB6 /* b2MotorJoint.cpp in Sources */,
 				F8A26EAA1E9D9B8700FE6DB6 /* b2CollidePolygon.cpp in Sources */,
@@ -768,6 +817,7 @@
 				F8A26EAB1E9D9B8700FE6DB6 /* b2Collision.cpp in Sources */,
 				F8A26EBD1E9D9B8800FE6DB6 /* b2World.cpp in Sources */,
 				F82D5D521E99C7F5005803E0 /* Artist.mm in Sources */,
+				F860FAB11F0C5F2A00122155 /* GB2ShapeCache.mm in Sources */,
 				F8A26EC21E9D9B8800FE6DB6 /* b2Contact.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

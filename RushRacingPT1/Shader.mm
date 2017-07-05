@@ -35,9 +35,6 @@
 }
 
 -(void) compile: (GLchar*) vertexSource : (GLchar*) fragmentSource{
-    //NSString* vertexPath = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"];
-    //NSString* fragmentPath = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"fsh"];
-    
     vertexShaderSource = vertexSource;
     if(!vertexShaderSource) NSLog(@"failed to load vertex shader");
     

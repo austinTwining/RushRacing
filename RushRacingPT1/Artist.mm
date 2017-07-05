@@ -104,5 +104,4 @@
     glBindVertexArray(0);
     [_shader stop];
 }
-
 @end

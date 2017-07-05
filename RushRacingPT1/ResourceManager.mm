@@ -56,7 +56,15 @@ static NSMutableDictionary* Textures;
 +(Texture*) getTexture: (NSString*) name{ return Textures[name]; }
 
 +(void) clear{
-    
+    for(NSString* key in Shaders){
+        Shader* s = [Shaders objectForKey:key];
+        glDeleteShader(s.programID);
+    }
+    for(NSString* key in Textures){
+        Texture* t = [Textures objectForKey:key];
+        GLuint name = t.textureInfo.name;
+        glDeleteTextures(1, &name);
+    }
 }
 
 @end

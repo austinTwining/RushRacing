@@ -14,20 +14,6 @@
 
 #import "Tire.h"
 
-typedef struct {
-    
-    float maxPower;
-    float maxForwardSpeed;
-    float maxBackwardSpeed;
-    float maxLateralImpulse;
-    
-}CarProperties;
-
-typedef enum {
-    Z9_PROTON,
-    NUM_CARS
-}CarType;
-
 typedef enum {
     LEFT,
     RIGHT,
@@ -41,7 +27,7 @@ typedef enum {
 
 @property (assign) Direction direction;
 
--(id) initWithWorld: (b2World*) world type:(CarType) type;
+-(id) initWithWorld: (b2World*) world;
 
 -(void) update;
 

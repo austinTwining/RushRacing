@@ -7,11 +7,18 @@
 //
 
 #import "TestScene.h"
+#include "DebugDraw.h"
 
 @interface TestScene(){
     Car* car;
     
     b2World* m_world;
+    
+    PhysicsParser* pp;
+    
+    DebugDraw m_debugDraw;
+    
+    CarDef* cDef;
 }
 
 @end
@@ -21,12 +28,14 @@
 //load
 -(void) initialize{
     m_world = new b2World(b2Vec2(0,0));// init physics world
+    m_debugDraw.SetFlags(b2Draw::e_shapeBit + b2Draw::e_jointBit);
+    m_world->SetDebugDraw(&m_debugDraw);
     
     //load needed textures
     [ResourceManager loadTexture:@"Z9-ProtonTire" path:@"Z9-Proton-Tire.png"];
     [ResourceManager loadTexture:@"Z9-Proton" path:@"Z9-Proton-Orange.png"];
     
-    car = [[Car alloc] initWithWorld:m_world type:Z9_PROTON];
+    car = [[Car alloc] initWithWorld:m_world];
 }
 
 //update
@@ -43,6 +52,7 @@
 //draw
 -(void) draw : (Artist*) artist{
     [artist updateCameraPosition:[car getBody]->GetPosition().x * PTM :[car getBody]->GetPosition().y * PTM];
+    m_debugDraw.setViewMatrix(GLKMatrix4Translate(GLKMatrix4Identity, -artist.cameraPosition.x, -artist.cameraPosition.y, 0));
     
     Texture* tire = [ResourceManager getTexture:@"Z9-ProtonTire"];
     
@@ -61,6 +71,8 @@
                position:GLKVector2Make([car getBody]->GetPosition().x * PTM, [car getBody]->GetPosition().y * PTM)
                    size:GLKVector2Make([cTex Width], [cTex Height])
                rotation:[car getBody]->GetAngle()];
+    
+    m_world->DrawDebugData();
 }
 
 //handle input
@@ -84,7 +96,7 @@
 
 //unload
 -(void) cleanup{
-    
+    delete m_world;
 }
 
 @end

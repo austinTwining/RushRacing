@@ -13,6 +13,8 @@
 
 #import "Car.h"
 
+#import "PhysicsParser.h"
+
 @interface TestScene : Scene
 
 //load
