@@ -81,6 +81,8 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     [ResourceManager clear];
+    [artist cleanup];
+    [Director cleanup];
 }
 
 -(void) update{

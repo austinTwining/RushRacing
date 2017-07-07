@@ -34,6 +34,13 @@ static NSString* currentScene;
 +(void) draw : (Artist*) artist{
     [Scenes[currentScene] draw:artist];
 }
+
++(void) cleanup{
+    for(NSString* key in Scenes){
+        [[Scenes objectForKey:key] cleanup];
+    }
+}
+
 //handle input
 +(void) onTouchBegan: (NSSet*) touch{
     [Scenes[currentScene] onTouchBegan:touch];

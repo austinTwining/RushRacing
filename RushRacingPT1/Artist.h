@@ -31,4 +31,6 @@
 
 -(void) drawTexture: (Texture*) tex position: (GLKVector2) position size: (GLKVector2) size rotation: (GLfloat) rotation;
 
+-(void) cleanup;
+
 @end

@@ -104,4 +104,8 @@
     glBindVertexArray(0);
     [_shader stop];
 }
+
+-(void) cleanup{
+    glDeleteVertexArrays(1, &VAO);
+}
 @end

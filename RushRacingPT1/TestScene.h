@@ -11,10 +11,6 @@
 #import "Scene.h"
 #import "ViewController.h"
 
-#import "Car.h"
-
-#import "PhysicsParser.h"
-
 @interface TestScene : Scene
 
 //load

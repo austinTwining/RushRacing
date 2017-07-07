@@ -8,17 +8,15 @@
 
 #import "TestScene.h"
 #include "DebugDraw.h"
+#import "PhysicsBodyCache.h"
 
 @interface TestScene(){
-    Car* car;
-    
     b2World* m_world;
-    
-    PhysicsParser* pp;
-    
     DebugDraw m_debugDraw;
     
-    CarDef* cDef;
+    PhysicsBodyCache* pbCache;
+    b2Body* b;
+    b2Body* b2;
 }
 
 @end
@@ -31,11 +29,15 @@
     m_debugDraw.SetFlags(b2Draw::e_shapeBit + b2Draw::e_jointBit);
     m_world->SetDebugDraw(&m_debugDraw);
     
+    pbCache = [[PhysicsBodyCache alloc] init];
+    
+    [pbCache parseXMLFile:[[NSBundle mainBundle] URLForResource:@"testshape2" withExtension:@"xml"]];
+    
+    b = [pbCache createBody:@"Z9-Proton-Orange" withWorld:m_world];
+    
     //load needed textures
     [ResourceManager loadTexture:@"Z9-ProtonTire" path:@"Z9-Proton-Tire.png"];
     [ResourceManager loadTexture:@"Z9-Proton" path:@"Z9-Proton-Orange.png"];
-    
-    car = [[Car alloc] initWithWorld:m_world];
 }
 
 //update
@@ -44,33 +46,17 @@
     int32 velocityIterations = 8;   //how strongly to correct velocity
     int32 positionIterations = 3;   //how strongly to correct position
     
-    [car update];
-    
     m_world->Step( timeStep, velocityIterations, positionIterations);
     //NSLog(@"FPS: %ld", (long)self.framesPerSecond);
 }
 //draw
 -(void) draw : (Artist*) artist{
-    [artist updateCameraPosition:[car getBody]->GetPosition().x * PTM :[car getBody]->GetPosition().y * PTM];
+    [artist setCameraPosition:GLKVector2Make(-50, -100)];
     m_debugDraw.setViewMatrix(GLKMatrix4Translate(GLKMatrix4Identity, -artist.cameraPosition.x, -artist.cameraPosition.y, 0));
     
-    Texture* tire = [ResourceManager getTexture:@"Z9-ProtonTire"];
+    Texture* t = [ResourceManager getTexture:@"Z9-Proton"];
     
-    for(int t = 0; t < 4; t++){
-        b2Body* tBody = [car.tires[t] getBody];
-        
-        [artist drawTexture:tire
-                   position:GLKVector2Make(tBody->GetPosition().x * PTM, tBody->GetPosition().y * PTM)
-                       size:GLKVector2Make([tire Width], [tire Height])
-                   rotation:tBody->GetAngle()];
-    }
-    
-    Texture* cTex = [ResourceManager getTexture:@"Z9-Proton"];
-    
-    [artist drawTexture:cTex
-               position:GLKVector2Make([car getBody]->GetPosition().x * PTM, [car getBody]->GetPosition().y * PTM)
-                   size:GLKVector2Make([cTex Width], [cTex Height])
-               rotation:[car getBody]->GetAngle()];
+    [artist drawTexture:t position:GLKVector2Make(-50, -100) size:GLKVector2Make(t.Width, t.Height) rotation:0];
     
     m_world->DrawDebugData();
 }
@@ -79,8 +65,10 @@
 -(void) onTouchBegan: (NSSet*) touch{
     for(UITouch* t in touch){
         CGPoint loc = [t locationInView:t.view];
-        if(loc.x < 333) car.direction = LEFT;
-        else if(loc.x > 333) car.direction = RIGHT;
+        if(loc.x < 333) {
+        }//car.direction = LEFT;
+        else if(loc.x > 333){
+        }//car.direction = RIGHT;
     }
 }
 -(void) onTouchMoved: (NSSet*) touch{
@@ -89,8 +77,10 @@
 -(void) onTouchEnded: (NSSet*) touch{
     for(UITouch* t in touch){
         CGPoint loc = [t locationInView:t.view];
-        if(loc.x < 666) car.direction = STRAIGHT;
-        else if(loc.x > 666) car.direction = STRAIGHT;
+        if(loc.x < 666){
+        }//car.direction = STRAIGHT;
+        else if(loc.x > 666){
+        }//car.direction = STRAIGHT;
     }
 }
 
