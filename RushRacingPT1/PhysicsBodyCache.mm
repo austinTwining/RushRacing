@@ -104,7 +104,7 @@
         }
     }
     
-    return nil;
+    return body;
 }
 
 -(void) parseXMLFile : (NSURL*) xmlPath{

@@ -51,12 +51,12 @@
 }
 //draw
 -(void) draw : (Artist*) artist{
-    [artist setCameraPosition:GLKVector2Make(-50, -100)];
+    [artist updateCameraPosition: b->GetPosition().x * PTM : b->GetPosition().y * PTM];
     m_debugDraw.setViewMatrix(GLKMatrix4Translate(GLKMatrix4Identity, -artist.cameraPosition.x, -artist.cameraPosition.y, 0));
     
     Texture* t = [ResourceManager getTexture:@"Z9-Proton"];
     
-    [artist drawTexture:t position:GLKVector2Make(-50, -100) size:GLKVector2Make(t.Width, t.Height) rotation:0];
+    [artist drawTexture:t position:GLKVector2Make(b->GetPosition().x * PTM, b->GetPosition().y * PTM) size:GLKVector2Make(t.Width, t.Height) rotation:0];
     
     m_world->DrawDebugData();
 }
