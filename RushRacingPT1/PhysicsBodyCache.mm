@@ -56,8 +56,6 @@
 -(b2Body*) createBody : (NSString*) name withWorld : (b2World*) world{
     BodyTemplate* bodyTemplate = [_bodies valueForKey:name];
     
-    NSLog(@"bodies: %@", _bodies);
-    
     b2BodyDef bodyDef;
     bodyDef.type = bodyTemplate.isDynamic ? b2_dynamicBody : b2_staticBody;
     bodyDef.position.Set(0, 0);
@@ -80,7 +78,6 @@
             body->CreateFixture(&fixDef);
         }
         for(PolygonTemplate* pt in ft.polygons){
-            NSLog(@"Current Polygons %@", pt);
             b2PolygonShape pShape;
             b2FixtureDef fixDef;
             
@@ -99,8 +96,6 @@
             fixDef.restitution = ft.restitution;
             
             b2Fixture* f = body->CreateFixture(&fixDef);
-            
-            NSLog(@"fixtures: %p", f);
         }
     }
     
@@ -163,8 +158,6 @@ didStartElement:(NSString *)elementName
         [_currentPolygons addObject:polygonTemplate];
     }else if([elementName isEqualToString:@"fixture"]){
         _currentFixture.polygons = _currentPolygons;
-        NSLog(@"current polies1: %@", _currentPolygons);
-        NSLog(@"current polies: %@", _currentFixture.polygons);
         _currentFixture.circles = _currentCircles;
         [_currentFixtures addObject:_currentFixture];
     }else if([elementName isEqualToString:@"body"]){

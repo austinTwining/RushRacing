@@ -35,6 +35,8 @@
     
     b = [pbCache createBody:@"Z9-Proton-Orange" withWorld:m_world];
     
+    b->ApplyForce(b2Vec2(100000, 0), b->GetWorldCenter(), true);
+    
     //load needed textures
     [ResourceManager loadTexture:@"Z9-ProtonTire" path:@"Z9-Proton-Tire.png"];
     [ResourceManager loadTexture:@"Z9-Proton" path:@"Z9-Proton-Orange.png"];
@@ -56,9 +58,13 @@
     
     Texture* t = [ResourceManager getTexture:@"Z9-Proton"];
     
-    [artist drawTexture:t position:GLKVector2Make(b->GetPosition().x * PTM, b->GetPosition().y * PTM) size:GLKVector2Make(t.Width, t.Height) rotation:0];
+    for(int i = 0; i < 100; i++){
+        [artist drawTexture:t position:GLKVector2Make(i * 1000, 0) size:GLKVector2Make(t.Width, t.Height) rotation:0];
+    }
     
-    m_world->DrawDebugData();
+    //[artist drawTexture:t position:GLKVector2Make(b->GetPosition().x * PTM, b->GetPosition().y * PTM) size:GLKVector2Make(t.Width, t.Height) rotation:0];
+    
+    //m_world->DrawDebugData();
 }
 
 //handle input
