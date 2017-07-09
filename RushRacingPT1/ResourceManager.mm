@@ -10,24 +10,28 @@
 
 @implementation ResourceManager
 
-static NSMutableDictionary* Shaders;
-static NSMutableDictionary* Textures;
+-(id) init{
+    self = [super init];
+    if(self){
+        _Shaders = [[NSMutableDictionary alloc] init];
+        _Textures = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
 
-+(Shader*) loadShader: (NSString*) name vertexPath: (NSString*) vertexPath fragmentPath: (NSString*) fragmentPath{
+-(Shader*) loadShader: (NSString*) name vertexPath: (NSString*) vertexPath fragmentPath: (NSString*) fragmentPath{
     Shader* shader = [[Shader alloc] init];
     
     [shader compile:(GLchar *)[[NSString stringWithContentsOfFile:vertexPath encoding:NSUTF8StringEncoding error:nil] UTF8String] :(GLchar *)[[NSString stringWithContentsOfFile:fragmentPath encoding:NSUTF8StringEncoding error:nil] UTF8String]];
     
-    if(!Shaders) Shaders = [[NSMutableDictionary alloc] init];
-    
-    [Shaders setObject:shader forKey:name];
+    [_Shaders setObject:shader forKey:name];
 
     return shader;
 }
 
-+(Shader*) getShader: (NSString*) name{ return Shaders[name]; }
+-(Shader*) getShader: (NSString*) name{ return _Shaders[name]; }
 
-+(Texture*) loadTexture: (NSString*) name path: (NSString*) path{
+-(Texture*) loadTexture: (NSString*) name path: (NSString*) path{
     CGImageRef imageReference = [[UIImage imageNamed:path] CGImage];
     NSError* error;
     
@@ -44,24 +48,22 @@ static NSMutableDictionary* Textures;
     
     NSLog(@"width: %i height: %i data: %p", [texture Width], [texture Height], [texture getTextureInfo]);
     
-    if(!Textures) Textures = [[NSMutableDictionary alloc] init];
-    
-    [Textures setObject:texture forKey:name];
-    NSLog(@"adding key %@ to dictionary with pointer %p", name, Textures);
-    NSLog( @"%@", Textures );
+    [_Textures setObject:texture forKey:name];
+    NSLog(@"adding key %@ to dictionary with pointer %p", name, _Textures);
+    NSLog( @"%@", _Textures );
     
     return texture;
 }
 
-+(Texture*) getTexture: (NSString*) name{ return Textures[name]; }
+-(Texture*) getTexture: (NSString*) name{ return _Textures[name]; }
 
-+(void) clear{
-    for(NSString* key in Shaders){
-        Shader* s = [Shaders objectForKey:key];
+-(void) clear{
+    for(NSString* key in _Shaders){
+        Shader* s = [_Shaders objectForKey:key];
         glDeleteShader(s.programID);
     }
-    for(NSString* key in Textures){
-        Texture* t = [Textures objectForKey:key];
+    for(NSString* key in _Textures){
+        Texture* t = [_Textures objectForKey:key];
         GLuint name = t.textureInfo.name;
         glDeleteTextures(1, &name);
     }

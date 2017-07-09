@@ -9,14 +9,13 @@
 #include <stdio.h>
 #include "DebugDraw.h"
 
-#import "ResourceManager.h"
-
 DebugDraw::DebugDraw() : mRatio(32.0f){
-    
+    resourceManager = [[ResourceManager alloc] init];
 }
 
-DebugDraw::DebugDraw(GLfloat ratio){
+DebugDraw::DebugDraw(GLfloat ratio, ResourceManager* rm){
     mRatio = ratio;
+    resourceManager = rm;
 }
 
 void DebugDraw::setViewMatrix(GLKMatrix4 view){
@@ -34,7 +33,7 @@ void DebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2C
         glverts[i*2+1] = vertices[i].y * mRatio;
     }
     
-    [[ResourceManager getShader:@"debug"] start];
+    [[resourceManager getShader:@"debug"] start];
     
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
@@ -53,15 +52,15 @@ void DebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2C
     glEnable(GL_BLEND);
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
-    [[ResourceManager getShader:@"debug"] setMatrix4:"view" :mView];
+    [[resourceManager getShader:@"debug"] setMatrix4:"view" :mView];
     
     //draw lines
-    [[ResourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 1.0f)];
+    [[resourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 1.0f)];
     glDrawArrays(GL_LINE_LOOP, 0, vertexCount);
     
     glDisableVertexAttribArray(0);
     
-    [[ResourceManager getShader:@"debug"] stop];
+    [[resourceManager getShader:@"debug"] stop];
     
     glDeleteVertexArrays(1, &VertexArrayID);
     glDeleteBuffers(1, &vertexbuffer);
@@ -78,7 +77,7 @@ void DebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, cons
         glverts[i*2+1] = vertices[i].y * mRatio;
     }
     
-    [[ResourceManager getShader:@"debug"] start];
+    [[resourceManager getShader:@"debug"] start];
     
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
@@ -97,19 +96,19 @@ void DebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, cons
     glEnable(GL_BLEND);
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
-    [[ResourceManager getShader:@"debug"] setMatrix4:"view" :mView];
+    [[resourceManager getShader:@"debug"] setMatrix4:"view" :mView];
     
     //draw solid area
-    [[ResourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 0.5f)];
+    [[resourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 0.5f)];
     glDrawArrays(GL_TRIANGLE_FAN, 0, vertexCount);
     
     //draw lines
-    [[ResourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 1.0f)];
+    [[resourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 1.0f)];
     glDrawArrays(GL_LINE_LOOP, 0, vertexCount);
     
     glDisableVertexAttribArray(0);
     
-    [[ResourceManager getShader:@"debug"] stop];
+    [[resourceManager getShader:@"debug"] stop];
     
     glDeleteVertexArrays(1, &VertexArrayID);
     glDeleteBuffers(1, &vertexbuffer);
@@ -131,7 +130,7 @@ void DebugDraw::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& 
         glverts[i*2+1] = (center.y + (radius * sinf(i * doublePi / numSegments))) * mRatio;
     }
     
-    [[ResourceManager getShader:@"debug"] start];
+    [[resourceManager getShader:@"debug"] start];
     
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
@@ -150,15 +149,15 @@ void DebugDraw::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& 
     glEnable(GL_BLEND);
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
-    [[ResourceManager getShader:@"debug"] setMatrix4:"view" :mView];
+    [[resourceManager getShader:@"debug"] setMatrix4:"view" :mView];
     
     //draw lines
-    [[ResourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 1.0f)];
+    [[resourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 1.0f)];
     glDrawArrays(GL_LINE_LOOP, 0, numVertices);
     
     glDisableVertexAttribArray(0);
     
-    [[ResourceManager getShader:@"debug"] stop];
+    [[resourceManager getShader:@"debug"] stop];
     
     glDeleteVertexArrays(1, &VertexArrayID);
     glDeleteBuffers(1, &vertexbuffer);
@@ -179,7 +178,7 @@ void DebugDraw::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Ve
         glverts[i*2+1] = (center.y + (radius * sinf(i * doublePi / numSegments))) * mRatio;
     }
     
-    [[ResourceManager getShader:@"debug"] start];
+    [[resourceManager getShader:@"debug"] start];
     
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
@@ -198,21 +197,21 @@ void DebugDraw::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Ve
     glEnable(GL_BLEND);
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
-    [[ResourceManager getShader:@"debug"] setMatrix4:"view" :mView];
+    [[resourceManager getShader:@"debug"] setMatrix4:"view" :mView];
     
     //draw solid area
-    [[ResourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 0.5f)];
+    [[resourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 0.5f)];
     glDrawArrays(GL_TRIANGLE_FAN, 0, numVertices);
     
     //draw lines
-    [[ResourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 1.0f)];
+    [[resourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 1.0f)];
     glDrawArrays(GL_LINE_LOOP, 0, numVertices);
     
     glDisableVertexAttribArray(0);
     
     DrawSegment(center,center+radius*axis,color);
     
-    [[ResourceManager getShader:@"debug"] stop];
+    [[resourceManager getShader:@"debug"] stop];
     
     glDeleteVertexArrays(1, &VertexArrayID);
     glDeleteBuffers(1, &vertexbuffer);
@@ -225,7 +224,7 @@ void DebugDraw::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& c
         p2.x * mRatio, p2.y * mRatio
     };
     
-    [[ResourceManager getShader:@"debug"] start];
+    [[resourceManager getShader:@"debug"] start];
     
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
@@ -244,15 +243,15 @@ void DebugDraw::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& c
     glEnable(GL_BLEND);
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
-    [[ResourceManager getShader:@"debug"] setMatrix4:"view" :mView];
+    [[resourceManager getShader:@"debug"] setMatrix4:"view" :mView];
     
     //draw lines
-    [[ResourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 1.0f)];
+    [[resourceManager getShader:@"debug"] setVector4f:"color" :GLKVector4Make(color.r, color.g, color.b, 1.0f)];
     glDrawArrays(GL_LINES, 0, 2);
     
     glDisableVertexAttribArray(0);
     
-    [[ResourceManager getShader:@"debug"] stop];
+    [[resourceManager getShader:@"debug"] stop];
 
     glDeleteVertexArrays(1, &VertexArrayID);
     glDeleteBuffers(1, &vertexbuffer);

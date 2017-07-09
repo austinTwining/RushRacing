@@ -13,12 +13,17 @@
 
 @interface ResourceManager : NSObject
 
-+(Shader*) loadShader: (NSString*) name vertexPath: (NSString*) vertexPath fragmentPath: (NSString*) fragmentPath;
-+(Shader*) getShader: (NSString*) name;
+@property (strong, nonatomic) NSMutableDictionary* Shaders;
+@property (strong, nonatomic) NSMutableDictionary* Textures;
 
-+(Texture*) loadTexture: (NSString*) name path: (NSString*) path;
-+(Texture*) getTexture: (NSString*) name;
+-(id) init;
 
-+(void) clear;
+-(Shader*) loadShader: (NSString*) name vertexPath: (NSString*) vertexPath fragmentPath: (NSString*) fragmentPath;
+-(Shader*) getShader: (NSString*) name;
+
+-(Texture*) loadTexture: (NSString*) name path: (NSString*) path;
+-(Texture*) getTexture: (NSString*) name;
+
+-(void) clear;
 
 @end

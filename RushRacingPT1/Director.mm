@@ -10,46 +10,51 @@
 
 @implementation Director
 
-static NSMutableDictionary* Scenes;
-static NSString* currentScene;
-
-+(void) setCurrentScene : (NSString*) name{
-    currentScene = name;
-    [Scenes[currentScene] initialize];
+-(id) init{
+    self = [super init];
+    if(self){
+        _Scenes = [[NSMutableDictionary alloc] init];
+    }
+    return self;
 }
 
-+(void) addScene:(Scene*) scene withName: (NSString*) name shouldBeCurrent: (GLboolean) setCurrent{
-    if(!Scenes) Scenes = [[NSMutableDictionary alloc] init];
-    Scenes[name] = scene;
-    if(setCurrent) [self setCurrentScene:name];
-}
-+(void) deleteScene : (NSString*) name{
-    [Scenes[name] cleanup];
-    [Scenes removeObjectForKey:name];
+-(void) setScene : (NSString*) name{
+    _currentScene = name;
+    [_Scenes[_currentScene] initialize];
 }
 
-+(void) update{
-    [Scenes[currentScene] update];
+-(void) addScene:(Scene*) scene withName: (NSString*) name shouldBeCurrent: (GLboolean) setCurrent{
+    _Scenes[name] = scene;
+    if(setCurrent) [self setScene:name];
 }
-+(void) draw : (Artist*) artist{
-    [Scenes[currentScene] draw:artist];
+-(void) deleteScene : (NSString*) name{
+    [_Scenes[name] cleanup];
+    [_Scenes removeObjectForKey:name];
 }
 
-+(void) cleanup{
-    for(NSString* key in Scenes){
-        [[Scenes objectForKey:key] cleanup];
+-(void) update{
+    [_Scenes[_currentScene] update];
+}
+-(void) draw : (Artist*) artist{
+    [_Scenes[_currentScene] draw:artist];
+}
+
+-(void) cleanup{
+    for(NSString* key in _Scenes){
+        [[_Scenes objectForKey:key] cleanup];
     }
 }
 
 //handle input
-+(void) onTouchBegan: (NSSet*) touch{
-    [Scenes[currentScene] onTouchBegan:touch];
+-(void) onTouchBegan: (NSSet*) touch{
+    [_Scenes
+     [_currentScene] onTouchBegan:touch];
 }
-+(void) onTouchMoved: (NSSet*) touch{
-    [Scenes[currentScene] onTouchMoved:touch];
+-(void) onTouchMoved: (NSSet*) touch{
+    [_Scenes[_currentScene] onTouchMoved:touch];
 }
-+(void) onTouchEnded: (NSSet*) touch{
-    [Scenes[currentScene] onTouchEnded:touch];
+-(void) onTouchEnded: (NSSet*) touch{
+    [_Scenes[_currentScene] onTouchEnded:touch];
 }
 
 @end

@@ -15,19 +15,24 @@
 
 @interface Director : NSObject
 
-+(void) setCurrentScene : (NSString*) name;
+@property (strong, nonatomic) NSMutableDictionary* Scenes;
+@property NSString* currentScene;
 
-+(void) addScene : (Scene*) scene withName: (NSString*) name shouldBeCurrent: (GLboolean) setCurrent;
-+(void) deleteScene : (NSString*) name;
+-(id) init;
 
-+(void) update;
-+(void) draw : (Artist*) artist;
+-(void) setCurrentScene : (NSString*) name;
 
-+(void) cleanup;
+-(void) addScene : (Scene*) scene withName: (NSString*) name shouldBeCurrent: (GLboolean) setCurrent;
+-(void) deleteScene : (NSString*) name;
+
+-(void) update;
+-(void) draw : (Artist*) artist;
+
+-(void) cleanup;
 
 //handle input
-+(void) onTouchBegan: (NSSet*) touch;
-+(void) onTouchMoved: (NSSet*) touch;
-+(void) onTouchEnded: (NSSet*) touch;
+-(void) onTouchBegan: (NSSet*) touch;
+-(void) onTouchMoved: (NSSet*) touch;
+-(void) onTouchEnded: (NSSet*) touch;
 
 @end

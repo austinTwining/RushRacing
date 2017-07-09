@@ -10,11 +10,11 @@
 
 @implementation Scene
 
--(id) init{
+-(id) initWithResourceManager:(ResourceManager *)rm{
     self = [super init];
     
     if(self){
-        
+        _resourceManager = rm;
     }
     return self;
 }

@@ -13,7 +13,9 @@
 
 @interface Scene : NSObject
 
--(id) init;
+@property (strong, nonatomic) ResourceManager* resourceManager;
+
+-(id) initWithResourceManager : (ResourceManager*) rm;
 
 //load
 -(void) initialize;

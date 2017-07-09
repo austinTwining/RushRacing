@@ -4,7 +4,7 @@
     <bodies numBodies="1">
 
         <body name="Z9-Proton-Orange" dynamic="true" numFixtures="2">
-
+            
             <fixture
                 density="1"
                 friction="0"
@@ -16,9 +16,9 @@
                 type="CIRCLE"
                 numPolygons=""
                 >
-
+                
                 <circle r="30.509" x="0.000" y="-40.750"/>
-
+                
             </fixture>
 
             <fixture

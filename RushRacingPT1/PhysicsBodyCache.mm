@@ -58,7 +58,7 @@
     
     b2BodyDef bodyDef;
     bodyDef.type = bodyTemplate.isDynamic ? b2_dynamicBody : b2_staticBody;
-    bodyDef.position.Set(0, 0);
+    bodyDef.position = b2Vec2(0, 0);
     
     b2Body* body = world->CreateBody(&bodyDef);
     
@@ -95,7 +95,7 @@
             fixDef.friction = ft.friction;
             fixDef.restitution = ft.restitution;
             
-            b2Fixture* f = body->CreateFixture(&fixDef);
+            body->CreateFixture(&fixDef);
         }
     }
     

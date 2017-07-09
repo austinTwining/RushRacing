@@ -12,16 +12,19 @@
 #include <Box2D/Box2D.h>
 #import <OpenGLES/ES3/glext.h>
 #import <GLKit/GLKit.h>
+#import "ResourceManager.h"
 
 class DebugDraw : public b2Draw{
     
     GLfloat mRatio;
     GLKMatrix4 mView;
     
+    ResourceManager* resourceManager;
+    
 public:
     
     DebugDraw();
-    DebugDraw(GLfloat ratio);
+    DebugDraw(GLfloat ratio, ResourceManager* rm);
     
     void setViewMatrix(GLKMatrix4 view);
     

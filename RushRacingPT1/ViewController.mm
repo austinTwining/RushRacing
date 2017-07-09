@@ -10,16 +10,13 @@
 
 #import "ViewController.h"
 
-#import "Artist.h"
-#import "Director.h"
-#import "ResourceManager.h"
-
 #import "TestScene.h"
 
 // screen dim in meters h: 23.4375 w: 41.6875
 
 @interface ViewController (){
     Artist* artist;
+    Director* director;
     
     int halfScreenWidth;
     int halfScreenHeight;
@@ -28,6 +25,8 @@
 @end
 
 @implementation ViewController
+
+static ResourceManager* resourceManager;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,21 +46,24 @@
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
+    //create resource manager
+    resourceManager = [[ResourceManager alloc] init];
+    
     //load in the main shader program, both vertex and fragment
-    [ResourceManager loadShader:@"main" vertexPath:[[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"] fragmentPath:[[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"fsh"]];
+    [resourceManager loadShader:@"main" vertexPath:[[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"] fragmentPath:[[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"fsh"]];
     
     //start the shader and set the projection matrix for main
-    [[ResourceManager getShader:@"main"] start];
-    [[ResourceManager getShader:@"main"] setMatrix4:"projection" :GLKMatrix4MakeOrtho(0, self.view.bounds.size.width*self.view.contentScaleFactor, self.view.bounds.size.height*self.view.contentScaleFactor, 0, -1, 1)];
-    [[ResourceManager getShader:@"main"] stop];
+    [[resourceManager getShader:@"main"] start];
+    [[resourceManager getShader:@"main"] setMatrix4:"projection" :GLKMatrix4MakeOrtho(0, self.view.bounds.size.width*self.view.contentScaleFactor, self.view.bounds.size.height*self.view.contentScaleFactor, 0, -1, 1)];
+    [[resourceManager getShader:@"main"] stop];
     
     //load in the main shader program, both vertex and fragment
-    [ResourceManager loadShader:@"debug" vertexPath:[[NSBundle mainBundle] pathForResource:@"debug" ofType:@"vsh"] fragmentPath:[[NSBundle mainBundle] pathForResource:@"debug" ofType:@"fsh"]];
+    [resourceManager loadShader:@"debug" vertexPath:[[NSBundle mainBundle] pathForResource:@"debug" ofType:@"vsh"] fragmentPath:[[NSBundle mainBundle] pathForResource:@"debug" ofType:@"fsh"]];
     
     //start the shader and set the projection matrix for debug
-    [[ResourceManager getShader:@"debug"] start];
-    [[ResourceManager getShader:@"debug"] setMatrix4:"projection" :GLKMatrix4MakeOrtho(0, self.view.bounds.size.width*self.view.contentScaleFactor, self.view.bounds.size.height*self.view.contentScaleFactor, 0, -1, 1)];
-    [[ResourceManager getShader:@"debug"] stop];
+    [[resourceManager getShader:@"debug"] start];
+    [[resourceManager getShader:@"debug"] setMatrix4:"projection" :GLKMatrix4MakeOrtho(0, self.view.bounds.size.width*self.view.contentScaleFactor, self.view.bounds.size.height*self.view.contentScaleFactor, 0, -1, 1)];
+    [[resourceManager getShader:@"debug"] stop];
     
     halfScreenWidth = (self.view.bounds.size.width*self.view.contentScaleFactor)/2;
     halfScreenHeight = (self.view.bounds.size.height*self.view.contentScaleFactor)/2;
@@ -70,42 +72,47 @@
     
     //initialize the artist class to handle all the drawing giving the main shader and the half
     //screen dimensions
-    artist = [[Artist alloc] initWithShader: [ResourceManager getShader:@"main"] halfScreenWidth:halfScreenWidth halfScreenHeight:halfScreenHeight];
+    artist = [[Artist alloc] initWithShader: [resourceManager getShader:@"main"] halfScreenWidth:halfScreenWidth halfScreenHeight:halfScreenHeight];
+    director = [[Director alloc] init];
     
     //create the initial scene *TEMPORARY*
-    Scene* s = [[TestScene alloc] init];
+    Scene* s = [[TestScene alloc] initWithResourceManager:resourceManager];
     //add the scene to the director
-    [Director addScene:s withName:@"testScene" shouldBeCurrent:true];
+    [director addScene:s withName:@"testScene" shouldBeCurrent:true];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    [ResourceManager clear];
+    [resourceManager clear];
     [artist cleanup];
-    [Director cleanup];
+    [director cleanup];
 }
 
 -(void) update{
-    [Director update];
+    [director update];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect{
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
-    [Director draw:artist];
+    [director draw:artist];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [Director onTouchBegan:touches];
+    [director onTouchBegan:touches];
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    [Director onTouchMoved:touches];
+    [director onTouchMoved:touches];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [Director onTouchEnded:touches];
+    [director onTouchEnded:touches];
+}
+
++(ResourceManager*) getResourceManager{
+    return resourceManager;
 }
 
 @end

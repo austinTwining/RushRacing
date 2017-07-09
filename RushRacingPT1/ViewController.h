@@ -7,10 +7,16 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 
+#import "Artist.h"
+#import "Director.h"
+#import "ResourceManager.h"
+
 @interface ViewController : GLKViewController
 
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) GLKBaseEffect *effect;
+
++(ResourceManager*) getResourceManager;
 
 @end
 
