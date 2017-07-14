@@ -21,6 +21,22 @@
 		F82D5D4D1E99C633005803E0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82D5D4C1E99C633005803E0 /* OpenGLES.framework */; };
 		F82D5D4F1E99C63B005803E0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82D5D4E1E99C63B005803E0 /* QuartzCore.framework */; };
 		F82D5D521E99C7F5005803E0 /* Artist.mm in Sources */ = {isa = PBXBuildFile; fileRef = F82D5D511E99C7F5005803E0 /* Artist.mm */; };
+		F84858261F1293FF00CC5721 /* Z9-Proton-Orange-small.png in Resources */ = {isa = PBXBuildFile; fileRef = F84858241F1293FF00CC5721 /* Z9-Proton-Orange-small.png */; };
+		F84858271F1293FF00CC5721 /* Z9-Proton-Tire-small.png in Resources */ = {isa = PBXBuildFile; fileRef = F84858251F1293FF00CC5721 /* Z9-Proton-Tire-small.png */; };
+		F84858311F13C52700CC5721 /* BrakeButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F848582E1F13C52700CC5721 /* BrakeButton@3x.png */; };
+		F84858321F13C52700CC5721 /* LeftButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F848582F1F13C52700CC5721 /* LeftButton@3x.png */; };
+		F84858331F13C52700CC5721 /* RightButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F84858301F13C52700CC5721 /* RightButton@3x.png */; };
+		F84858491F143C5C00CC5721 /* TrackCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = F84858481F143C5C00CC5721 /* TrackCache.mm */; };
+		F848584C1F153E9800CC5721 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = F848584B1F153E9800CC5721 /* Track.m */; };
+		F84858571F16D33B00CC5721 /* down-left.png in Resources */ = {isa = PBXBuildFile; fileRef = F848584F1F16D33B00CC5721 /* down-left.png */; };
+		F84858581F16D33B00CC5721 /* down-right.png in Resources */ = {isa = PBXBuildFile; fileRef = F84858501F16D33B00CC5721 /* down-right.png */; };
+		F84858591F16D33B00CC5721 /* TestTrack.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F84858511F16D33B00CC5721 /* TestTrack.tmx */; };
+		F848585B1F16D33B00CC5721 /* up-left.png in Resources */ = {isa = PBXBuildFile; fileRef = F84858531F16D33B00CC5721 /* up-left.png */; };
+		F848585C1F16D33B00CC5721 /* up-right.png in Resources */ = {isa = PBXBuildFile; fileRef = F84858541F16D33B00CC5721 /* up-right.png */; };
+		F848585D1F16D33B00CC5721 /* x-straight.png in Resources */ = {isa = PBXBuildFile; fileRef = F84858551F16D33B00CC5721 /* x-straight.png */; };
+		F848585E1F16D33B00CC5721 /* y-straight.png in Resources */ = {isa = PBXBuildFile; fileRef = F84858561F16D33B00CC5721 /* y-straight.png */; };
+		F84858611F17AB6B00CC5721 /* TileSetParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F84858601F17AB6B00CC5721 /* TileSetParser.m */; };
+		F84858631F19235700CC5721 /* BasicTest.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F84858621F19235700CC5721 /* BasicTest.tsx */; };
 		F860FAC01F0D46D700122155 /* DebugDraw.mm in Sources */ = {isa = PBXBuildFile; fileRef = F860FABF1F0D46D700122155 /* DebugDraw.mm */; };
 		F860FAC51F0D4FC900122155 /* debug.fsh in Resources */ = {isa = PBXBuildFile; fileRef = F860FAC31F0D4FC900122155 /* debug.fsh */; };
 		F860FAC61F0D4FC900122155 /* debug.vsh in Resources */ = {isa = PBXBuildFile; fileRef = F860FAC41F0D4FC900122155 /* debug.vsh */; };
@@ -136,6 +152,25 @@
 		F82D5D4E1E99C63B005803E0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F82D5D501E99C7F5005803E0 /* Artist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artist.h; sourceTree = "<group>"; };
 		F82D5D511E99C7F5005803E0 /* Artist.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Artist.mm; sourceTree = "<group>"; };
+		F84858241F1293FF00CC5721 /* Z9-Proton-Orange-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Z9-Proton-Orange-small.png"; sourceTree = "<group>"; };
+		F84858251F1293FF00CC5721 /* Z9-Proton-Tire-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Z9-Proton-Tire-small.png"; sourceTree = "<group>"; };
+		F848582E1F13C52700CC5721 /* BrakeButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrakeButton@3x.png"; sourceTree = "<group>"; };
+		F848582F1F13C52700CC5721 /* LeftButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LeftButton@3x.png"; sourceTree = "<group>"; };
+		F84858301F13C52700CC5721 /* RightButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RightButton@3x.png"; sourceTree = "<group>"; };
+		F84858471F143C5C00CC5721 /* TrackCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackCache.h; sourceTree = "<group>"; };
+		F84858481F143C5C00CC5721 /* TrackCache.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TrackCache.mm; sourceTree = "<group>"; };
+		F848584A1F153E9800CC5721 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		F848584B1F153E9800CC5721 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		F848584F1F16D33B00CC5721 /* down-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down-left.png"; sourceTree = "<group>"; };
+		F84858501F16D33B00CC5721 /* down-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down-right.png"; sourceTree = "<group>"; };
+		F84858511F16D33B00CC5721 /* TestTrack.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestTrack.tmx; sourceTree = "<group>"; };
+		F84858531F16D33B00CC5721 /* up-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up-left.png"; sourceTree = "<group>"; };
+		F84858541F16D33B00CC5721 /* up-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up-right.png"; sourceTree = "<group>"; };
+		F84858551F16D33B00CC5721 /* x-straight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-straight.png"; sourceTree = "<group>"; };
+		F84858561F16D33B00CC5721 /* y-straight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "y-straight.png"; sourceTree = "<group>"; };
+		F848585F1F17AB6B00CC5721 /* TileSetParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileSetParser.h; sourceTree = "<group>"; };
+		F84858601F17AB6B00CC5721 /* TileSetParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileSetParser.m; sourceTree = "<group>"; };
+		F84858621F19235700CC5721 /* BasicTest.tsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BasicTest.tsx; sourceTree = "<group>"; };
 		F860FAB21F0C5F9400122155 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F860FABE1F0D469100122155 /* DebugDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugDraw.h; sourceTree = "<group>"; };
 		F860FABF1F0D46D700122155 /* DebugDraw.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DebugDraw.mm; sourceTree = "<group>"; };
@@ -332,6 +367,7 @@
 		F82D5D121E99C5CD005803E0 /* RushRacingPT1 */ = {
 			isa = PBXGroup;
 			children = (
+				F84858461F14390F00CC5721 /* Track */,
 				F8CCB9901EBF664E00B7D554 /* Vehicle */,
 				F82D5D161E99C5CD005803E0 /* AppDelegate.h */,
 				F82D5D171E99C5CD005803E0 /* AppDelegate.mm */,
@@ -396,9 +432,51 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F84858461F14390F00CC5721 /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				F84858471F143C5C00CC5721 /* TrackCache.h */,
+				F84858481F143C5C00CC5721 /* TrackCache.mm */,
+				F848584A1F153E9800CC5721 /* Track.h */,
+				F848584B1F153E9800CC5721 /* Track.m */,
+				F848585F1F17AB6B00CC5721 /* TileSetParser.h */,
+				F84858601F17AB6B00CC5721 /* TileSetParser.m */,
+			);
+			name = Track;
+			sourceTree = "<group>";
+		};
+		F848584D1F16D31C00CC5721 /* Tracks */ = {
+			isa = PBXGroup;
+			children = (
+				F848584E1F16D32300CC5721 /* TestTrack */,
+			);
+			name = Tracks;
+			sourceTree = "<group>";
+		};
+		F848584E1F16D32300CC5721 /* TestTrack */ = {
+			isa = PBXGroup;
+			children = (
+				F84858621F19235700CC5721 /* BasicTest.tsx */,
+				F848584F1F16D33B00CC5721 /* down-left.png */,
+				F84858501F16D33B00CC5721 /* down-right.png */,
+				F84858511F16D33B00CC5721 /* TestTrack.tmx */,
+				F84858531F16D33B00CC5721 /* up-left.png */,
+				F84858541F16D33B00CC5721 /* up-right.png */,
+				F84858551F16D33B00CC5721 /* x-straight.png */,
+				F84858561F16D33B00CC5721 /* y-straight.png */,
+			);
+			name = TestTrack;
+			sourceTree = "<group>";
+		};
 		F8A26E2E1E9BCF7700FE6DB6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F848584D1F16D31C00CC5721 /* Tracks */,
+				F848582E1F13C52700CC5721 /* BrakeButton@3x.png */,
+				F848582F1F13C52700CC5721 /* LeftButton@3x.png */,
+				F84858301F13C52700CC5721 /* RightButton@3x.png */,
+				F84858241F1293FF00CC5721 /* Z9-Proton-Orange-small.png */,
+				F84858251F1293FF00CC5721 /* Z9-Proton-Tire-small.png */,
 				F8ED43851F117E8800AB5A3D /* smaller.png */,
 				F8ED43831F117E2700AB5A3D /* smaller@1.5x.png */,
 				F8ED43791F1160FB00AB5A3D /* background@1.5x.png */,
@@ -724,23 +802,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F84858271F1293FF00CC5721 /* Z9-Proton-Tire-small.png in Resources */,
 				F8A26E361E9D807700FE6DB6 /* Shader.fsh in Resources */,
 				F8ED43841F117E2700AB5A3D /* smaller@1.5x.png in Resources */,
 				F8ED43751F11340C00AB5A3D /* background.png in Resources */,
 				F8ED437A1F1160FB00AB5A3D /* background@1.5x.png in Resources */,
 				F860FAC61F0D4FC900122155 /* debug.vsh in Resources */,
+				F84858581F16D33B00CC5721 /* down-right.png in Resources */,
 				F8CCB9A81EC20F3B00B7D554 /* Z9-Proton-Tire.png in Resources */,
 				F82D5D261E99C5CD005803E0 /* LaunchScreen.storyboard in Resources */,
 				F82D5D231E99C5CD005803E0 /* Assets.xcassets in Resources */,
 				F8ED43821F117D9400AB5A3D /* Z9-Proton_bodies.xml in Resources */,
+				F84858331F13C52700CC5721 /* RightButton@3x.png in Resources */,
 				F816523E1F0C1A73006B6772 /* testshape2.xml in Resources */,
+				F848585E1F16D33B00CC5721 /* y-straight.png in Resources */,
+				F84858261F1293FF00CC5721 /* Z9-Proton-Orange-small.png in Resources */,
+				F848585B1F16D33B00CC5721 /* up-left.png in Resources */,
 				F8A26E301E9BCF9100FE6DB6 /* Pumpkin.jpg in Resources */,
 				F8CCB9971EBF68FD00B7D554 /* Z9-Proton-Orange@0.15x.png in Resources */,
 				F82D5D1E1E99C5CD005803E0 /* Main.storyboard in Resources */,
 				F860FAC51F0D4FC900122155 /* debug.fsh in Resources */,
 				F8CCB9AC1EC3BA7D00B7D554 /* Sample.png in Resources */,
+				F84858571F16D33B00CC5721 /* down-left.png in Resources */,
+				F84858321F13C52700CC5721 /* LeftButton@3x.png in Resources */,
+				F84858311F13C52700CC5721 /* BrakeButton@3x.png in Resources */,
 				F8A26E351E9D807700FE6DB6 /* Shader.vsh in Resources */,
 				F8CCB9991EBF783B00B7D554 /* Z9-Proton-Orange.png in Resources */,
+				F84858591F16D33B00CC5721 /* TestTrack.tmx in Resources */,
+				F848585C1F16D33B00CC5721 /* up-right.png in Resources */,
+				F84858631F19235700CC5721 /* BasicTest.tsx in Resources */,
+				F848585D1F16D33B00CC5721 /* x-straight.png in Resources */,
 				F8CCB9951EBF66F900B7D554 /* Z9-Proton-Orange@0.25x.png in Resources */,
 				F8ED43861F117E8800AB5A3D /* smaller.png in Resources */,
 			);
@@ -790,6 +881,7 @@
 				F8A26ECF1E9D9B8800FE6DB6 /* b2PulleyJoint.cpp in Sources */,
 				F8ED437F1F117C0B00AB5A3D /* Car.mm in Sources */,
 				F8A26EC61E9D9B8800FE6DB6 /* b2PolygonAndCircleContact.cpp in Sources */,
+				F848584C1F153E9800CC5721 /* Track.m in Sources */,
 				F8A26EC81E9D9B8800FE6DB6 /* b2DistanceJoint.cpp in Sources */,
 				F8A26E371E9D807700FE6DB6 /* Shader.mm in Sources */,
 				F8A26ED41E9D9B8800FE6DB6 /* b2Rope.cpp in Sources */,
@@ -805,6 +897,7 @@
 				F8A26ECD1E9D9B8800FE6DB6 /* b2MouseJoint.cpp in Sources */,
 				F8CCB9831EB7D24000B7D554 /* Director.mm in Sources */,
 				F8B4FDC41ED5C28F00DC3628 /* Texture.mm in Sources */,
+				F84858611F17AB6B00CC5721 /* TileSetParser.m in Sources */,
 				F8B4FDC11ED4EA1000DC3628 /* ResourceManager.mm in Sources */,
 				F8A26EAE1E9D9B8700FE6DB6 /* b2TimeOfImpact.cpp in Sources */,
 				F8A26EB81E9D9B8800FE6DB6 /* b2Timer.cpp in Sources */,
@@ -821,6 +914,7 @@
 				F8A26EC31E9D9B8800FE6DB6 /* b2ContactSolver.cpp in Sources */,
 				F8A26EAC1E9D9B8700FE6DB6 /* b2Distance.cpp in Sources */,
 				F8A26EB21E9D9B8800FE6DB6 /* b2PolygonShape.cpp in Sources */,
+				F84858491F143C5C00CC5721 /* TrackCache.mm in Sources */,
 				F8B4FDC91EDF03CB00DC3628 /* TestScene.mm in Sources */,
 				F8A26EC01E9D9B8800FE6DB6 /* b2ChainAndPolygonContact.cpp in Sources */,
 				F8A26EB61E9D9B8800FE6DB6 /* b2Settings.cpp in Sources */,

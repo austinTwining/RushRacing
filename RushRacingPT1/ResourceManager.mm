@@ -55,6 +55,13 @@
     return texture;
 }
 
+-(void) deleteTexture: (NSString*) name{
+    Texture* t = [_Textures objectForKey:name];
+    GLuint key = t.textureInfo.name;
+    glDeleteTextures(1, &key);
+    [_Textures removeObjectForKey:name];
+}
+
 -(Texture*) getTexture: (NSString*) name{ return _Textures[name]; }
 
 -(void) clear{
@@ -63,9 +70,7 @@
         glDeleteShader(s.programID);
     }
     for(NSString* key in _Textures){
-        Texture* t = [_Textures objectForKey:key];
-        GLuint name = t.textureInfo.name;
-        glDeleteTextures(1, &name);
+        [self deleteTexture:key];
     }
 }
 

@@ -80,8 +80,22 @@
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
--(void) updateCameraPosition: (GLfloat) x : (GLfloat) y{
-    _cameraPosition = GLKVector2Make(x - _halfScreenWidth, y - _halfScreenHeight);
+-(void) updateCameraPosition: (GLfloat) x : (GLfloat) y rotation: (GLfloat) r{
+    _cameraPosition.x = x - _halfScreenWidth;
+    _cameraPosition.y = y - _halfScreenHeight;
+    _cameraPosition.z = r;
+}
+
+-(void) updateSmoothCameraPosition: (GLfloat) x : (GLfloat) y rotation: (GLfloat) r{
+    _targetCameraPosition.x = x - _halfScreenWidth;
+    _targetCameraPosition.y = y - _halfScreenHeight;
+    _targetCameraPosition.z = r;
+}
+
+-(void) updateSmoothCamera{
+    _cameraPosition.x = _targetCameraPosition.x;
+    _cameraPosition.y = _targetCameraPosition.y;
+    _cameraPosition.z = GLKVector2Lerp(GLKVector2Make(_cameraPosition.z, 0), GLKVector2Make(_targetCameraPosition.z, 0), 0.05).x;
 }
 
 -(void) drawTexture:(Texture *)tex position: (GLKVector2) position size: (GLKVector2) size rotation: (GLfloat) rotation{
@@ -92,7 +106,35 @@
     model = GLKMatrix4Translate(model, -0.5f * size.x, -0.5f * size.y, 0);
     model = GLKMatrix4Scale(model, size.x, size.y, 1);
     
-    GLKMatrix4 view = GLKMatrix4Translate(GLKMatrix4Identity, -_cameraPosition.x, -_cameraPosition.y, 0);
+    GLKMatrix4 view = GLKMatrix4Translate(GLKMatrix4Identity, _halfScreenWidth, _halfScreenHeight, 0);
+    view = GLKMatrix4Rotate(view, -_cameraPosition.z, 0, 0, 1);
+    view = GLKMatrix4Translate(view, -_halfScreenWidth, -_halfScreenHeight, 0);
+    view = GLKMatrix4Translate(view, -_cameraPosition.x, -_cameraPosition.y, 0);
+    
+    //GLKMatrix4 view = GLKMatrix4Translate(GLKMatrix4Identity, -_cameraPosition.x, -_cameraPosition.y, 0);
+    
+    [_shader setMatrix4: "model" :model];
+    [_shader setMatrix4: "view" :view];
+    
+    [tex bind];
+    glActiveTexture(GL_TEXTURE0);
+    glBindVertexArray(VAO);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
+    [_shader stop];
+}
+
+-(void) drawTextureWithoutView: (Texture*) tex position: (GLKVector2) position size: (GLKVector2) size rotation: (GLfloat) rotation{
+    [_shader start];
+    GLKMatrix4 model;
+    model = GLKMatrix4Translate(GLKMatrix4Identity, position.x, position.y, 0);
+    model = GLKMatrix4Rotate(model, rotation, 0, 0, 1);
+    model = GLKMatrix4Translate(model, -0.5f * size.x, -0.5f * size.y, 0);
+    model = GLKMatrix4Scale(model, size.x, size.y, 1);
+    
+    GLKMatrix4 view = GLKMatrix4Identity;
+    
+    //GLKMatrix4 view = GLKMatrix4Translate(GLKMatrix4Identity, -_cameraPosition.x, -_cameraPosition.y, 0);
     
     [_shader setMatrix4: "model" :model];
     [_shader setMatrix4: "view" :view];

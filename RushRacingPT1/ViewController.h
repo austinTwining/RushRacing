@@ -10,6 +10,9 @@
 #import "Artist.h"
 #import "Director.h"
 #import "ResourceManager.h"
+#import "TrackCache.h"
+
+@class TrackCache;
 
 @interface ViewController : GLKViewController
 
@@ -17,6 +20,7 @@
 @property (strong, nonatomic) GLKBaseEffect *effect;
 
 +(ResourceManager*) getResourceManager;
++(TrackCache*) getTrackCache;
 
 @end
 

@@ -22,6 +22,7 @@
 -(Shader*) getShader: (NSString*) name;
 
 -(Texture*) loadTexture: (NSString*) name path: (NSString*) path;
+-(void) deleteTexture: (NSString*) name;
 -(Texture*) getTexture: (NSString*) name;
 
 -(void) clear;

@@ -42,7 +42,9 @@
 
 -(void) update{
     for(int i = 0; i < [_tires count]; i++){
-        [_tires[i] update];
+        Tire* t = _tires[i];
+        t.braking = _braking;
+        [t update];
     }
     
     //control steering
@@ -77,7 +79,7 @@
     _frJoint->SetLimits(newAngle, newAngle);
     
     float currentSpeed = b2Dot([self getForwardVelocity], m_body->GetWorldVector(b2Vec2(0,-1)));
-    NSLog(@"V: %f", [self mPerSecToKMPerHr:currentSpeed]); // print out speed in km/h
+    //NSLog(@"V: %f", [self mPerSecToKMPerHr:currentSpeed]); // print out speed in km/h
 }
 
 -(void) draw: (Artist*) artist{}

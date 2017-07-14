@@ -27,6 +27,7 @@
 @implementation ViewController
 
 static ResourceManager* resourceManager;
+static TrackCache* tCache;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -75,6 +76,11 @@ static ResourceManager* resourceManager;
     artist = [[Artist alloc] initWithShader: [resourceManager getShader:@"main"] halfScreenWidth:halfScreenWidth halfScreenHeight:halfScreenHeight];
     director = [[Director alloc] init];
     
+    //track cache
+    tCache = [[TrackCache alloc] init];
+    [tCache parseTrack:@"TestTrack"
+                  path:[[NSBundle mainBundle] URLForResource:@"TestTrack" withExtension:@"tmx"]];
+    
     //create the initial scene *TEMPORARY*
     Scene* s = [[TestScene alloc] initWithResourceManager:resourceManager];
     //add the scene to the director
@@ -113,6 +119,9 @@ static ResourceManager* resourceManager;
 
 +(ResourceManager*) getResourceManager{
     return resourceManager;
+}
++(TrackCache*) getTrackCache{
+    return tCache;
 }
 
 @end

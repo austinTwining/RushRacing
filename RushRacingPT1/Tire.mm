@@ -92,10 +92,11 @@
     float currentSpeed = b2Dot([self getForwardVelocity], currentForwardNormal);
     
     float force = 0;
-    if(_maxForwardSpeed > currentSpeed) force = _maxDriveForce;
+    if(_braking) force = -_maxDriveForce;
+    else if(_maxForwardSpeed > currentSpeed) force = _maxDriveForce;
     else return;
     
-    if(!_braking)m_body->ApplyForce(force * currentForwardNormal, m_body->GetWorldCenter(), true);
+    m_body->ApplyForce(force * currentForwardNormal, m_body->GetWorldCenter(), true);
 }
 
 -(b2Vec2) getLateralVelocity{

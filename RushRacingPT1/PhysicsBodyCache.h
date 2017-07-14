@@ -8,6 +8,7 @@
 #include <Box2D/Box2D.h>
 
 #import <Foundation/Foundation.h>
+#import "Artist.h"
 
 @interface PhysicsBodyCache : NSObject <NSXMLParserDelegate>
 

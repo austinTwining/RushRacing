@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- created with http://www.physicseditor.de -->
 <bodydef version="1.0">
-    <bodies numBodies="2">
+    <bodies numBodies="4">
 
         <body name="Z9-Proton-Orange" dynamic="true" numFixtures="2">
 
@@ -79,6 +79,90 @@
                     <vertex x="-4.5000" y="11.5000" />
 
                     <vertex x="-4.5000" y="-11.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="Z9-Proton-Orange-small" dynamic="true" numFixtures="2">
+
+            <fixture
+                density="1"
+                friction="0"
+                restitution="0"
+                filter_categoryBits="1"
+                filter_groupIndex="0"
+                filter_maskBits="65535"
+                isSensor="false"
+                type="CIRCLE"
+                numPolygons=""
+                >
+
+                <circle r="21.009" x="0.000" y="-28.188"/>
+
+            </fixture>
+
+            <fixture
+                density="1"
+                friction="0"
+                restitution="0"
+                filter_categoryBits="1"
+                filter_groupIndex="0"
+                filter_maskBits="65535"
+                isSensor="false"
+                type="POLYGON"
+                numPolygons="1"
+                >
+
+
+                <polygon numVertexes="6">
+
+                    <vertex x="21.0000" y="-28.0000" />
+
+                    <vertex x="21.0000" y="36.0000" />
+
+                    <vertex x="18.0000" y="42.0000" />
+
+                    <vertex x="-17.0000" y="42.0000" />
+
+                    <vertex x="-21.0000" y="36.0000" />
+
+                    <vertex x="-21.0000" y="-28.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="Z9-Proton-Tire-small" dynamic="true" numFixtures="1">
+
+            <fixture
+                density="1"
+                friction="0"
+                restitution="0"
+                filter_categoryBits="1"
+                filter_groupIndex="0"
+                filter_maskBits="65535"
+                isSensor="false"
+                type="POLYGON"
+                numPolygons="1"
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="2.5000" y="-7.5000" />
+
+                    <vertex x="2.5000" y="7.5000" />
+
+                    <vertex x="-2.5000" y="7.5000" />
+
+                    <vertex x="-2.5000" y="-7.5000" />
 
                 </polygon>
 

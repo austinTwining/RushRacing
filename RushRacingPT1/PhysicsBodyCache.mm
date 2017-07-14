@@ -27,7 +27,7 @@
 -(id) init{
     self = [super init];
     if(self){
-        mRatio = 32.0f;
+        mRatio = PTM;
         
         _bodies = [[NSMutableDictionary alloc] init];
         
