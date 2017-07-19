@@ -18,6 +18,8 @@
 -(id) initWithRatio : (float) aRatio;
 
 -(b2Body*) createBody : (NSString*) name withWorld : (b2World*) world;
+-(b2Body*) createBody : (NSString*) name withWorld : (b2World*) world withPosition : (b2Vec2) position;
+-(b2Body*) createBody : (NSString*) name withWorld : (b2World*) world withPosition : (b2Vec2) position withRotation : (float) rotation;
 
 -(void) parseXMLFile : (NSURL*) xmlPath;
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="BasicTest" tilewidth="300" tileheight="300" tilecount="6" columns="0">
+<tileset name="BasicTest" tilewidth="400" tileheight="400" tilecount="7" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image width="300" height="300" source="down-left.png"/>
@@ -18,5 +18,8 @@
  </tile>
  <tile id="5">
   <image width="300" height="300" source="y-straight.png"/>
+ </tile>
+ <tile id="6">
+  <image width="300" height="300" source="Grass.png"/>
  </tile>
 </tileset>

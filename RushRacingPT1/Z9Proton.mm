@@ -66,6 +66,119 @@
     return self;
 }
 
+-(id) initWithWorld: (b2World*) world
+          withCache: (PhysicsBodyCache*) pbCache
+       withPosition: (b2Vec2) position{
+    self = [super initWithWorld:world withBody: [pbCache createBody:@"Z9-Proton-Orange-small" withWorld:world withPosition:position]];
+    if(self){
+        //set up tires
+        b2RevoluteJointDef jointDef;
+        jointDef.bodyA = [super getBody];
+        jointDef.enableLimit = true;
+        jointDef.lowerAngle = 0;//with both these at zero...
+        jointDef.upperAngle = 0;//...the joint will not move
+        jointDef.localAnchorB.SetZero();//joint anchor in tire is always center
+        
+        TireProperties tirePropertiesFront;
+        tirePropertiesFront.maxForwardSpeed   = 23;
+        tirePropertiesFront.maxBackwardSpeed  = 10;
+        tirePropertiesFront.maxDriveForce     = 15;
+        tirePropertiesFront.maxLateralImpulse = 1.8;
+        
+        TireProperties tirePropertiesBack;
+        tirePropertiesBack.maxForwardSpeed   = 23;
+        tirePropertiesBack.maxBackwardSpeed  = 10;
+        tirePropertiesBack.maxDriveForce     = 20;
+        tirePropertiesBack.maxLateralImpulse = 1.5;
+        
+        //back left tire
+        Tire* tire = [[Tire alloc] initWithWorld:world properties:tirePropertiesBack withBody: [pbCache createBody:@"Z9-Proton-Tire-small" withWorld:world withPosition:position]];
+        jointDef.bodyB = [tire getBody];
+        jointDef.localAnchorA.Set(-0.875, 1.28);
+        world->CreateJoint( &jointDef );
+        [super.tires addObject:tire];
+        
+        //back right tire
+        tire = [[Tire alloc] initWithWorld:world properties:tirePropertiesBack withBody: [pbCache createBody:@"Z9-Proton-Tire-small" withWorld:world withPosition:position]];
+        jointDef.bodyB = [tire getBody];
+        jointDef.localAnchorA.Set(0.844, 1.28);
+        world->CreateJoint( &jointDef );
+        [super.tires addObject:tire];
+        
+        //front left tire
+        tire = [[Tire alloc] initWithWorld:world properties:tirePropertiesFront withBody: [pbCache createBody:@"Z9-Proton-Tire-small" withWorld:world withPosition:position]];
+        jointDef.bodyB = [tire getBody];
+        jointDef.localAnchorA.Set(0.844, -1.375);
+        super.flJoint = (b2RevoluteJoint*)world->CreateJoint(&jointDef);
+        [super.tires addObject:tire];
+        
+        //front right tire
+        tire = [[Tire alloc] initWithWorld:world properties:tirePropertiesFront withBody: [pbCache createBody:@"Z9-Proton-Tire-small" withWorld:world withPosition:position]];
+        jointDef.bodyB = [tire getBody];
+        jointDef.localAnchorA.Set(-0.875, -1.375);
+        super.frJoint = (b2RevoluteJoint*)world->CreateJoint(&jointDef);
+        [super.tires addObject:tire];
+    }
+    return self;
+}
+
+-(id) initWithWorld: (b2World*) world
+          withCache: (PhysicsBodyCache*) pbCache
+       withPosition: (b2Vec2) position
+       withRotation: (float) rotation{
+    self = [super initWithWorld:world withBody: [pbCache createBody:@"Z9-Proton-Orange-small" withWorld:world withPosition:position withRotation:rotation]];
+    if(self){
+        //set up tires
+        b2RevoluteJointDef jointDef;
+        jointDef.bodyA = [super getBody];
+        jointDef.enableLimit = true;
+        jointDef.lowerAngle = 0;//with both these at zero...
+        jointDef.upperAngle = 0;//...the joint will not move
+        jointDef.localAnchorB.SetZero();//joint anchor in tire is always center
+        
+        TireProperties tirePropertiesFront;
+        tirePropertiesFront.maxForwardSpeed   = 23;
+        tirePropertiesFront.maxBackwardSpeed  = 10;
+        tirePropertiesFront.maxDriveForce     = 15;
+        tirePropertiesFront.maxLateralImpulse = 1.8;
+        
+        TireProperties tirePropertiesBack;
+        tirePropertiesBack.maxForwardSpeed   = 23;
+        tirePropertiesBack.maxBackwardSpeed  = 10;
+        tirePropertiesBack.maxDriveForce     = 20;
+        tirePropertiesBack.maxLateralImpulse = 1.5;
+        
+        //back left tire
+        Tire* tire = [[Tire alloc] initWithWorld:world properties:tirePropertiesBack withBody: [pbCache createBody:@"Z9-Proton-Tire-small" withWorld:world withPosition:position]];
+        jointDef.bodyB = [tire getBody];
+        jointDef.localAnchorA.Set(-0.875, 1.28);
+        world->CreateJoint( &jointDef );
+        [super.tires addObject:tire];
+        
+        //back right tire
+        tire = [[Tire alloc] initWithWorld:world properties:tirePropertiesBack withBody: [pbCache createBody:@"Z9-Proton-Tire-small" withWorld:world withPosition:position]];
+        jointDef.bodyB = [tire getBody];
+        jointDef.localAnchorA.Set(0.844, 1.28);
+        world->CreateJoint( &jointDef );
+        [super.tires addObject:tire];
+        
+        //front left tire
+        tire = [[Tire alloc] initWithWorld:world properties:tirePropertiesFront withBody: [pbCache createBody:@"Z9-Proton-Tire-small" withWorld:world withPosition:position]];
+        jointDef.bodyB = [tire getBody];
+        jointDef.localAnchorA.Set(0.844, -1.375);
+        super.flJoint = (b2RevoluteJoint*)world->CreateJoint(&jointDef);
+        [super.tires addObject:tire];
+        
+        //front right tire
+        tire = [[Tire alloc] initWithWorld:world properties:tirePropertiesFront withBody: [pbCache createBody:@"Z9-Proton-Tire-small" withWorld:world withPosition:position]];
+        jointDef.bodyB = [tire getBody];
+        jointDef.localAnchorA.Set(-0.875, -1.375);
+        super.frJoint = (b2RevoluteJoint*)world->CreateJoint(&jointDef);
+        [super.tires addObject:tire];
+    }
+    return self;
+}
+
 -(void) update{
     [super update];
 }

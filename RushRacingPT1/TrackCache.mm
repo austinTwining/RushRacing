@@ -21,7 +21,7 @@ typedef enum{
 
 @property Track* currentTrack;
 @property NSString* currentTrackName;
-@property NSString* currentTrackLayer;
+@property NSString* currentLayer;
 
 @property NSMutableDictionary* tileSetPaths;
 
@@ -77,11 +77,22 @@ didStartElement:(NSString *)elementName
         _tileSetPaths[[attributeDict valueForKey:@"firstgid"]] = [attributeDict valueForKey:@"source"];
     }else if([elementName isEqualToString:@"layer"]){
         //NSLog(@"layer");
-        _currentTrackLayer = [attributeDict valueForKey:@"name"];
+        _currentLayer = [attributeDict valueForKey:@"name"];
     }else if([elementName isEqualToString:@"tile"]){
         //NSLog(@"tile");
-        if([_currentTrackLayer isEqualToString:@"Track"]){
+        if([_currentLayer isEqualToString:@"Track"]){
             [_currentTrack.trackTiles addObject:[attributeDict valueForKey:@"gid"]];
+        }else if ([_currentLayer isEqualToString:@"Background"]){
+            [_currentTrack.backgroundTiles addObject:[attributeDict valueForKey:@"gid"]];
+        }
+    }else if([elementName isEqualToString:@"object"]){
+        if([[attributeDict valueForKey:@"name"] containsString:@"StartPoint"]){
+            float x = [attributeDict valueForKey:@"x"].floatValue;
+            float y = [attributeDict valueForKey:@"y"].floatValue;
+            //float width = [attributeDict valueForKey:@"width"].floatValue;
+            //float height = [attributeDict valueForKey:@"height"].floatValue;
+            
+            _currentTrack.startPosition = GLKVector2Make(x, y);
         }
     }
 }

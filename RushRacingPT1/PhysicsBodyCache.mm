@@ -102,6 +102,105 @@
     return body;
 }
 
+-(b2Body*) createBody : (NSString*) name withWorld : (b2World*) world withPosition : (b2Vec2) position{
+    BodyTemplate* bodyTemplate = [_bodies valueForKey:name];
+    
+    b2BodyDef bodyDef;
+    bodyDef.type = bodyTemplate.isDynamic ? b2_dynamicBody : b2_staticBody;
+    bodyDef.position = position;
+    
+    b2Body* body = world->CreateBody(&bodyDef);
+    
+    for(FixtureTemplate* ft in bodyTemplate.fixtureTemplates){
+        for(CircleTemplate* ct in ft.circles){
+            b2CircleShape cShape;
+            b2FixtureDef fixDef;
+            
+            cShape.m_p = b2Vec2(ct.x / mRatio, ct.y / mRatio);
+            cShape.m_radius = ct.radius / mRatio;
+            
+            fixDef.shape = &cShape;
+            fixDef.density = ft.density;
+            fixDef.friction = ft.friction;
+            fixDef.restitution = ft.restitution;
+            
+            body->CreateFixture(&fixDef);
+        }
+        for(PolygonTemplate* pt in ft.polygons){
+            b2PolygonShape pShape;
+            b2FixtureDef fixDef;
+            
+            b2Vec2 vertices[pt.vertices.count];
+            
+            for(int i = 0; i < pt.vertices.count; i++){
+                Vector2f* v = [pt.vertices objectAtIndex:i];
+                vertices[i] = b2Vec2(v.x / mRatio, v.y / mRatio);
+            }
+            
+            pShape.Set(vertices, pt.vertices.count);
+            
+            fixDef.shape = &pShape;
+            fixDef.density = ft.density;
+            fixDef.friction = ft.friction;
+            fixDef.restitution = ft.restitution;
+            
+            body->CreateFixture(&fixDef);
+        }
+    }
+    
+    return body;
+}
+
+-(b2Body*) createBody : (NSString*) name withWorld : (b2World*) world withPosition : (b2Vec2) position withRotation : (float) rotation{
+    BodyTemplate* bodyTemplate = [_bodies valueForKey:name];
+    
+    b2BodyDef bodyDef;
+    bodyDef.type = bodyTemplate.isDynamic ? b2_dynamicBody : b2_staticBody;
+    bodyDef.position = position;
+    bodyDef.fixedRotation = rotation;
+    
+    b2Body* body = world->CreateBody(&bodyDef);
+    
+    for(FixtureTemplate* ft in bodyTemplate.fixtureTemplates){
+        for(CircleTemplate* ct in ft.circles){
+            b2CircleShape cShape;
+            b2FixtureDef fixDef;
+            
+            cShape.m_p = b2Vec2(ct.x / mRatio, ct.y / mRatio);
+            cShape.m_radius = ct.radius / mRatio;
+            
+            fixDef.shape = &cShape;
+            fixDef.density = ft.density;
+            fixDef.friction = ft.friction;
+            fixDef.restitution = ft.restitution;
+            
+            body->CreateFixture(&fixDef);
+        }
+        for(PolygonTemplate* pt in ft.polygons){
+            b2PolygonShape pShape;
+            b2FixtureDef fixDef;
+            
+            b2Vec2 vertices[pt.vertices.count];
+            
+            for(int i = 0; i < pt.vertices.count; i++){
+                Vector2f* v = [pt.vertices objectAtIndex:i];
+                vertices[i] = b2Vec2(v.x / mRatio, v.y / mRatio);
+            }
+            
+            pShape.Set(vertices, pt.vertices.count);
+            
+            fixDef.shape = &pShape;
+            fixDef.density = ft.density;
+            fixDef.friction = ft.friction;
+            fixDef.restitution = ft.restitution;
+            
+            body->CreateFixture(&fixDef);
+        }
+    }
+    
+    return body;
+}
+
 -(void) parseXMLFile : (NSURL*) xmlPath{
     self.parser = [[NSXMLParser alloc] initWithContentsOfURL:xmlPath];
     self.parser.delegate = self;

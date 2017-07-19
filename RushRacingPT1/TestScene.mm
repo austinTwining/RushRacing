@@ -41,6 +41,7 @@
     pbCache = [[PhysicsBodyCache alloc] init];
     
     [pbCache parseXMLFile:[[NSBundle mainBundle] URLForResource:@"Z9-Proton_bodies" withExtension:@"xml"]];
+    [pbCache parseXMLFile:[[NSBundle mainBundle] URLForResource:@"TestTrackBodies" withExtension:@"xml"]];
     
     //load needed textures
     [super.resourceManager loadTexture:@"Z9-Proton-Tire" path:@"Z9-Proton-Tire-small.png"];
@@ -48,9 +49,9 @@
     //[super.resourceManager loadTexture:@"testtrack" path:@"smaller.png"];
     
     track = [[ViewController getTrackCache].tracks valueForKey:@"TestTrack"];
-    [track load];
+    [track loadWithPhysics:pbCache :m_world];
     
-    car = [[Z9Proton alloc] initWithWorld:m_world withCache:pbCache];
+    car = [[Z9Proton alloc] initWithWorld:m_world withCache:pbCache withPosition:b2Vec2(track.startPosition.x / PTM, track.startPosition.y / PTM)];
     
     ///////*GUI TEST*/////////
     [super.resourceManager loadTexture:@"Right-Button" path:@"RightButton@3x.png"];
@@ -86,7 +87,7 @@
     
     //[artist drawTexture:back position:GLKVector2Make(0, 0) size:GLKVector2Make(back.Width, back.Height) rotation:0];
     
-    [track draw:artist];
+    [track draw:artist withPosition:GLKVector2Make([car getBody]->GetPosition().x * PTM, [car getBody]->GetPosition().y * PTM)];
     
     [car draw:artist];
     

@@ -12,6 +12,13 @@
 
 -(id) initWithWorld: (b2World*) world
           withCache: (PhysicsBodyCache*) pbCache;
+-(id) initWithWorld: (b2World*) world
+          withCache: (PhysicsBodyCache*) pbCache
+       withPosition: (b2Vec2) position;
+-(id) initWithWorld: (b2World*) world
+          withCache: (PhysicsBodyCache*) pbCache
+       withPosition: (b2Vec2) position
+       withRotation: (float) rotation;
 
 -(void) update;
 -(void) draw: (Artist*) artist;
