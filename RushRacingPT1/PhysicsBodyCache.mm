@@ -157,7 +157,7 @@
     b2BodyDef bodyDef;
     bodyDef.type = bodyTemplate.isDynamic ? b2_dynamicBody : b2_staticBody;
     bodyDef.position = position;
-    bodyDef.fixedRotation = rotation;
+    bodyDef.angle = rotation;
     
     b2Body* body = world->CreateBody(&bodyDef);
     

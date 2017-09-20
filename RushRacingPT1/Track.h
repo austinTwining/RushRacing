@@ -5,12 +5,15 @@
 //  Created by Austin-James Twining on 2017-07-11.
 //  Copyright © 2017 Austin-James Twining. All rights reserved.
 //
-#include <Box2D/Box2d.h>
+#include <Box2D/Box2D.h>
 
 #import <Foundation/Foundation.h>
 #import "ViewController.h"
 #import "PhysicsBodyCache.h"
 #import "Artist.h"
+
+@class Artist;
+@class PhysicsBodyCache;
 
 @interface Track : NSObject
 
@@ -24,10 +27,14 @@
 @property (strong, nonatomic) NSMutableDictionary* textures;
 @property (strong, nonatomic) NSMutableDictionary* tiles;
 
+@property (strong, nonatomic) NSMutableArray* krimskrams;
+
 @property (strong, nonatomic) NSMutableArray* trackTiles;
 @property (strong, nonatomic) NSMutableArray* backgroundTiles;
 
+//TEMPORARY
 @property (assign) GLKVector2 startPosition;
+@property (assign) float startRotation;
 
 -(id) init;
 

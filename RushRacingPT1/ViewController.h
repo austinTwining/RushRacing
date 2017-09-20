@@ -13,6 +13,7 @@
 #import "TrackCache.h"
 
 @class TrackCache;
+@class Director;
 
 @interface ViewController : GLKViewController
 
@@ -21,6 +22,14 @@
 
 +(ResourceManager*) getResourceManager;
 +(TrackCache*) getTrackCache;
++(Director*) getDirector;
++(int) getScale;
 
+@end
+
+@interface Vec2 : NSObject
+@property (assign) float x;
+@property (assign) float y;
+-(id)init;
 @end
 

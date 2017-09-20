@@ -24,6 +24,7 @@ void DebugDraw::setViewMatrix(GLKMatrix4 view){
 
 /// Draw a closed polygon provided in CCW order.
 void DebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color){
+    glLineWidth(1.0f);
     //set up vertex array
     GLfloat glverts[16]; //allow for polygons up to 8 vertices
     
@@ -68,6 +69,7 @@ void DebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2C
 
 /// Draw a solid closed polygon provided in CCW order.
 void DebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color){
+    glLineWidth(1.0f);
     //set up vertex array
     GLfloat glverts[16]; //allow for polygons up to 8 vertices
     
@@ -116,6 +118,7 @@ void DebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, cons
 
 /// Draw a circle.
 void DebugDraw::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color){
+    glLineWidth(1.0f);
     GLint numSegments = 32.0f;
     GLint numVertices = numSegments + 2;
     
@@ -164,6 +167,7 @@ void DebugDraw::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& 
 }
 
 void DebugDraw::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Vec2& axis, const b2Color& color){
+    glLineWidth(1.0f);
     GLint numSegments = 32.0f;
     GLint numVertices = numSegments + 2;
     
@@ -218,6 +222,7 @@ void DebugDraw::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Ve
 }
 
 void DebugDraw::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color){
+    glLineWidth(1.0f);
     
     GLfloat glverts[] = {
         p1.x * mRatio, p1.y * mRatio,

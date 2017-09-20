@@ -10,6 +10,7 @@
 
 #import "Scene.h"
 #import "ViewController.h"
+#import "MainMenuScene.h"
 
 @interface TestScene : Scene
 

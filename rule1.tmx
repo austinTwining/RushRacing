@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="400" tileheight="400" nextobjectid="5">
+ <tileset firstgid="1" source="Grounds.tsx"/>
+ <tileset firstgid="11" source="Tracks.tsx"/>
+ <layer name="regions" width="10" height="10">
+  <data encoding="csv">
+1,0,1,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+1,0,1,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="input_Track" width="10" height="10">
+  <data encoding="csv">
+30,0,25,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+20,0,15,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup name="output_Nodes">
+  <object id="1" name="Node" x="398.5" y="372.667" width="35" height="366" rotation="135">
+   <properties>
+    <property name="ID" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2" name="Node" x="1097.5" y="1070" width="35" height="366" rotation="135">
+   <properties>
+    <property name="ID" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="3" name="Node" x="1071.75" y="104.199" width="35" height="366" rotation="45">
+   <properties>
+    <property name="ID" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="4" name="Node" x="362.5" y="809" width="35" height="366" rotation="45">
+   <properties>
+    <property name="ID" type="int" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

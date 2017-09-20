@@ -11,12 +11,15 @@
 #import "ViewController.h"
 
 #import "TestScene.h"
+#import "MainMenuScene.h"
+#import "LeakSceneOne.h"
+
+#import "Font.h"
 
 // screen dim in meters h: 23.4375 w: 41.6875
 
 @interface ViewController (){
     Artist* artist;
-    Director* director;
     
     int halfScreenWidth;
     int halfScreenHeight;
@@ -28,6 +31,8 @@
 
 static ResourceManager* resourceManager;
 static TrackCache* tCache;
+static int scale;
+static Director* director;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,6 +47,8 @@ static TrackCache* tCache;
     [EAGLContext setCurrentContext: _context];
     
     self.preferredFramesPerSecond = 60;
+    
+    scale = self.view.contentScaleFactor;
     
     // allow the alpha channel on textures
     glEnable(GL_BLEND);
@@ -58,13 +65,30 @@ static TrackCache* tCache;
     [[resourceManager getShader:@"main"] setMatrix4:"projection" :GLKMatrix4MakeOrtho(0, self.view.bounds.size.width*self.view.contentScaleFactor, self.view.bounds.size.height*self.view.contentScaleFactor, 0, -1, 1)];
     [[resourceManager getShader:@"main"] stop];
     
-    //load in the main shader program, both vertex and fragment
+    //load in the debug shader program, both vertex and fragment
     [resourceManager loadShader:@"debug" vertexPath:[[NSBundle mainBundle] pathForResource:@"debug" ofType:@"vsh"] fragmentPath:[[NSBundle mainBundle] pathForResource:@"debug" ofType:@"fsh"]];
     
     //start the shader and set the projection matrix for debug
     [[resourceManager getShader:@"debug"] start];
     [[resourceManager getShader:@"debug"] setMatrix4:"projection" :GLKMatrix4MakeOrtho(0, self.view.bounds.size.width*self.view.contentScaleFactor, self.view.bounds.size.height*self.view.contentScaleFactor, 0, -1, 1)];
     [[resourceManager getShader:@"debug"] stop];
+    
+    //load in the font shader program, both vertex and fragment
+    [resourceManager loadShader:@"font" vertexPath:[[NSBundle mainBundle] pathForResource:@"font" ofType:@"vsh"] fragmentPath:[[NSBundle mainBundle] pathForResource:@"font" ofType:@"fsh"]];
+    
+    //start the shader and set the projection matrix for debug
+    [[resourceManager getShader:@"font"] start];
+    [[resourceManager getShader:@"font"] setMatrix4:"projection" :GLKMatrix4MakeOrtho(0, self.view.bounds.size.width*self.view.contentScaleFactor, self.view.bounds.size.height*self.view.contentScaleFactor, 0, -1, 1)];
+    [[resourceManager getShader:@"font"] stop];
+    
+    //load in the GUI shader program, both vertex and fragment
+    [resourceManager loadShader:@"GUI" vertexPath:[[NSBundle mainBundle] pathForResource:@"GUI" ofType:@"vsh"] fragmentPath:[[NSBundle mainBundle] pathForResource:@"GUI" ofType:@"fsh"]];
+    
+    //start the shader and set the projection matrix for debug
+    [[resourceManager getShader:@"GUI"] start];
+    [[resourceManager getShader:@"GUI"] setMatrix4:"projection" :GLKMatrix4MakeOrtho(0, self.view.bounds.size.width*self.view.contentScaleFactor, self.view.bounds.size.height*self.view.contentScaleFactor, 0, -1, 1)];
+    [[resourceManager getShader:@"GUI"] stop];
+    
     
     halfScreenWidth = (self.view.bounds.size.width*self.view.contentScaleFactor)/2;
     halfScreenHeight = (self.view.bounds.size.height*self.view.contentScaleFactor)/2;
@@ -78,13 +102,20 @@ static TrackCache* tCache;
     
     //track cache
     tCache = [[TrackCache alloc] init];
-    [tCache parseTrack:@"TestTrack"
-                  path:[[NSBundle mainBundle] URLForResource:@"TestTrack" withExtension:@"tmx"]];
+    [tCache parseTrack:@"Track"
+                  path:[[NSBundle mainBundle] URLForResource:@"Track" withExtension:@"tmx"]];
     
     //create the initial scene *TEMPORARY*
-    Scene* s = [[TestScene alloc] initWithResourceManager:resourceManager];
+    //Scene* s = [[LeakSceneOne alloc] initWithResourceManager:resourceManager];
     //add the scene to the director
-    [director addScene:s withName:@"testScene" shouldBeCurrent:true];
+    //[director addScene:s withName:@"One" shouldBeCurrent:true];
+    //create the initial scene *TEMPORARY*
+    Scene* s = [[MainMenuScene alloc] init];
+    //add the scene to the director
+    [director addScene:s withName:@"MainMenu" shouldBeCurrent:true];
+    
+    s = [[TestScene alloc] init];
+    [director addScene:s withName:@"testScene" shouldBeCurrent:false];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,7 +130,7 @@ static TrackCache* tCache;
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect{
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClearColor(0.8f, 0.8f, 0.8f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
     [director draw:artist];
@@ -122,6 +153,22 @@ static TrackCache* tCache;
 }
 +(TrackCache*) getTrackCache{
     return tCache;
+}
++(Director*) getDirector{
+    return director;
+}
++(int) getScale{
+    return scale;
+}
+
+@end
+
+@implementation Vec2
+
+-(id)init{
+    self = [super init];
+    if(self){}
+    return self;
 }
 
 @end

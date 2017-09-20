@@ -34,7 +34,10 @@ typedef enum {
 @property (strong, nonatomic) NSMutableArray* tires;
 
 @property (assign) Direction direction;
+@property (assign) bool driving;
 @property (assign) bool braking;
+
+@property (assign) float currentSpeed;
 
 -(id) initWithWorld: (b2World*) world withBody: (b2Body*) aBody;
 

@@ -183,15 +183,15 @@
     [super update];
 }
 -(void) draw: (Artist*) artist{
+    Texture* tt = [super.resourceManager getTexture:@"Z9-Proton-Tire"];
     for(Tire* t in super.tires){
         float32 tx = [t getBody]->GetPosition().x * PTM;
         float32 ty = [t getBody]->GetPosition().y * PTM;
         float32 tr = [t getBody]->GetAngle();
         
-        Texture* tt = [super.resourceManager getTexture:@"Z9-Proton-Tire"];
         [artist drawTexture:tt position:GLKVector2Make(tx, ty) size:GLKVector2Make(tt.Width, tt.Height) rotation:tr];
     }
-    
+
     float32 x = [super getBody]->GetPosition().x * PTM;
     float32 y = [super getBody]->GetPosition().y * PTM;
     float32 r = [super getBody]->GetAngle();

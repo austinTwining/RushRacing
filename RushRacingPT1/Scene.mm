@@ -10,15 +10,6 @@
 
 @implementation Scene
 
--(id) initWithResourceManager:(ResourceManager *)rm{
-    self = [super init];
-    
-    if(self){
-        _resourceManager = rm;
-    }
-    return self;
-}
-
 //load
 -(void) initialize{NSLog(@"Implement in sub class");}
 //update

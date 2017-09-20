@@ -15,6 +15,7 @@
     if(self){
         _textures = [[NSMutableDictionary alloc] init];
         _tiles = [[NSMutableDictionary alloc] init];
+        _krimskrams = [[NSMutableArray alloc] init];
         _trackTiles = [[NSMutableArray alloc] init];
         _backgroundTiles = [[NSMutableArray alloc] init];
     }
@@ -65,7 +66,7 @@
             }
             if(tileToGet != nil){
                 Texture* t = [[ViewController getResourceManager] getTexture:tileToGet];
-                [artist drawTexture:t position:GLKVector2Make(x * _tileSize, y * _tileSize) size:GLKVector2Make(_tileSize, _tileSize) rotation:0];
+                [artist drawTexture:t position:GLKVector2Make(200 + (x * _tileSize), 200 + (y * _tileSize)) size:GLKVector2Make(_tileSize, _tileSize) rotation:0];
             }
         }
     }
@@ -81,7 +82,18 @@
             }
             if(tileToGet != nil){
                 Texture* t = [[ViewController getResourceManager] getTexture:tileToGet];
-                [artist drawTexture:t position:GLKVector2Make(x * _tileSize, y * _tileSize) size:GLKVector2Make(_tileSize, _tileSize) rotation:0];
+                [artist drawTexture:t position:GLKVector2Make(200 + (x * _tileSize), 200 + (y * _tileSize)) size:GLKVector2Make(_tileSize, _tileSize) rotation:0];
+            }
+        }
+    }
+    for(KrimsKramsTemplate* kk in _krimskrams){
+        if(kk.x > position.x - (artist.halfScreenWidth*2) && kk.x < position.x + (artist.halfScreenWidth*2)){
+            if(kk.y > position.y - (artist.halfScreenHeight*2) && kk.y < position.y + (artist.halfScreenHeight*2)){
+                NSString* tileToGet = [_tiles valueForKey:kk.ID];
+                if(tileToGet != nil){
+                    Texture* t = [[ViewController getResourceManager] getTexture:tileToGet];
+                    [artist drawTexture:t position:GLKVector2Make(kk.x, kk.y) size:GLKVector2Make(kk.width, kk.height) rotation:0];
+                }
             }
         }
     }
@@ -101,20 +113,26 @@
     
     for(int x = 0; x < _Width; x++){
         for(int y = 0; y < _Height; y++){
-            NSString* tileToGet;
-            tileToGet = [_trackTiles objectAtIndex:(_Width * y + x)];
+            NSString* tileToGet = [_trackTiles objectAtIndex:(_Width * y + x)];
             tileToGet = [_tiles valueForKey:tileToGet];
             if(tileToGet != nil){
-                [pbc createBody:tileToGet withWorld:world withPosition:b2Vec2(x * (_tileSize / PTM), y * (_tileSize / PTM))];
+                [pbc createBody:tileToGet withWorld:world withPosition:b2Vec2((200 + (x * _tileSize)) / PTM, (200 + (y * _tileSize)) / PTM)];
             }
         }
     }
-
+    
+    /*for(BarrierTemplate* bt in _barriers){
+        NSString* tileToGet = [_tiles valueForKey:bt.ID];
+        if(tileToGet != nil){
+            [pbc createBody:tileToGet withWorld:world withPosition:b2Vec2(bt.x / PTM, (bt.y) / PTM)];
+        }
+    }*/
 }
 -(void) unload{
     for(NSString* key in _textures){
         [[ViewController getResourceManager] deleteTexture:key];
     }
+    //delete physics bodies
 }
 
 

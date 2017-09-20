@@ -77,7 +77,11 @@
 -(void) update{
     //update friction
     b2Vec2 impulse = m_body->GetMass() * -[self getLateralVelocity];
-    if (impulse.Length() > _maxLateralImpulse) impulse *= _maxLateralImpulse / impulse.Length();
+    if (impulse.Length() > _maxLateralImpulse){
+        impulse *= _maxLateralImpulse / impulse.Length();
+        _drifting = true;
+    }else _drifting = false;
+    
     m_body->ApplyLinearImpulse(impulse, m_body->GetWorldCenter(), true);
     
     m_body->ApplyAngularImpulse(0.1f * m_body->GetInertia() * -m_body->GetAngularVelocity(), true);
@@ -86,7 +90,7 @@
     b2Vec2 currentForwardNormal = m_body->GetWorldVector(b2Vec2(0,-1));
     float currentForwardSpeed = currentForwardNormal.Normalize();
     float dragForceMagnitude = -2 * currentForwardSpeed;
-    m_body->ApplyForce(dragForceMagnitude * currentForwardNormal, m_body->GetWorldCenter(), true);
+    if(_driving) m_body->ApplyForce(dragForceMagnitude * currentForwardNormal, m_body->GetWorldCenter(), true);
     
     //update drive force
     float currentSpeed = b2Dot([self getForwardVelocity], currentForwardNormal);
@@ -96,7 +100,7 @@
     else if(_maxForwardSpeed > currentSpeed) force = _maxDriveForce;
     else return;
     
-    m_body->ApplyForce(force * currentForwardNormal, m_body->GetWorldCenter(), true);
+    if(_driving) m_body->ApplyForce(force * currentForwardNormal, m_body->GetWorldCenter(), true);
 }
 
 -(b2Vec2) getLateralVelocity{

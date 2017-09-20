@@ -39,18 +39,20 @@
     GLKTextureInfo* textureInfo = [GLKTextureLoader textureWithCGImage:imageReference
                                                                options:nil
                                                                  error:&error];
+    
+    
     if(error) NSLog(@"Error loading texture: %@", [error localizedDescription]);
     
-    NSLog(@"imageRef: %p", imageReference);
+    //NSLog(@"imageRef: %p", imageReference);
     
     
     Texture* texture = [[Texture alloc] init:textureInfo];
     
-    NSLog(@"width: %i height: %i data: %p", [texture Width], [texture Height], [texture getTextureInfo]);
+    //NSLog(@"width: %i height: %i data: %p", [texture Width], [texture Height], [texture getTextureInfo]);
     
     [_Textures setObject:texture forKey:name];
-    NSLog(@"adding key %@ to dictionary with pointer %p", name, _Textures);
-    NSLog( @"%@", _Textures );
+    //NSLog(@"adding key %@ to dictionary with pointer %p", name, _Textures);
+    //NSLog( @"%@", _Textures );
     
     return texture;
 }

@@ -10,12 +10,11 @@
 
 #import "Director.h"
 #import "ResourceManager.h"
+#import "ViewController.h"
+
+@class Artist;
 
 @interface Scene : NSObject
-
-@property (strong, nonatomic) ResourceManager* resourceManager;
-
--(id) initWithResourceManager : (ResourceManager*) rm;
 
 //load
 -(void) initialize;

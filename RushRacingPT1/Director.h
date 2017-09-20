@@ -18,9 +18,11 @@
 @property (strong, nonatomic) NSMutableDictionary* Scenes;
 @property NSString* currentScene;
 
+@property (assign) BOOL paused;
+
 -(id) init;
 
--(void) setCurrentScene : (NSString*) name;
+-(void) setScene : (NSString*) name;
 
 -(void) addScene : (Scene*) scene withName: (NSString*) name shouldBeCurrent: (GLboolean) setCurrent;
 -(void) deleteScene : (NSString*) name;

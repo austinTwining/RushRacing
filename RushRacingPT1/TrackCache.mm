@@ -85,14 +85,36 @@ didStartElement:(NSString *)elementName
         }else if ([_currentLayer isEqualToString:@"Background"]){
             [_currentTrack.backgroundTiles addObject:[attributeDict valueForKey:@"gid"]];
         }
+    }else if([elementName isEqualToString:@"objectgroup"]){
+        _currentLayer = [attributeDict valueForKey:@"name"];
     }else if([elementName isEqualToString:@"object"]){
-        if([[attributeDict valueForKey:@"name"] containsString:@"StartPoint"]){
+        if([_currentLayer isEqualToString:@"KrimsKrams"]){
             float x = [attributeDict valueForKey:@"x"].floatValue;
             float y = [attributeDict valueForKey:@"y"].floatValue;
-            //float width = [attributeDict valueForKey:@"width"].floatValue;
-            //float height = [attributeDict valueForKey:@"height"].floatValue;
-            
-            _currentTrack.startPosition = GLKVector2Make(x, y);
+            float width = [attributeDict valueForKey:@"width"].floatValue;
+            float height = [attributeDict valueForKey:@"height"].floatValue;
+            y -= height/2;
+            x += width/2;
+            KrimsKramsTemplate* kk = [[KrimsKramsTemplate alloc] init];
+            kk.ID = [attributeDict valueForKey:@"gid"];
+            kk.x = x;
+            kk.y = y;
+            kk.width = width;
+            kk.height = height;
+            [_currentTrack.krimskrams addObject:kk];
+        }else if ([_currentLayer isEqualToString:@"GameObjects"]){
+            if([[attributeDict valueForKey:@"name"] containsString:@"StartPoint"]){
+                float x = [attributeDict valueForKey:@"x"].floatValue;
+                float y = [attributeDict valueForKey:@"y"].floatValue;
+                float width = [attributeDict valueForKey:@"width"].floatValue;
+                float height = [attributeDict valueForKey:@"height"].floatValue;
+                
+                x -= height/2;
+                y += width/2;
+                
+                _currentTrack.startPosition = GLKVector2Make(x, y);
+                _currentTrack.startRotation = GLKMathDegreesToRadians([attributeDict valueForKey:@"rotation"].floatValue);
+            }
         }
     }
 }
@@ -103,4 +125,14 @@ didStartElement:(NSString *)elementName
  qualifiedName:(NSString *)qName {
 
 }
+@end
+
+@implementation KrimsKramsTemplate
+
+-(id) init{
+    self = [super init];
+    if(self){}
+    return self;
+}
+
 @end

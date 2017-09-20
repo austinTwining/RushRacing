@@ -12,8 +12,11 @@
 
 #import "Texture.h"
 #import "Shader.h"
+#import "Font.h"
 
 #define PTM 22
+
+@class Font;
 
 @interface Artist : NSObject
 
@@ -32,8 +35,10 @@
 -(void) updateSmoothCameraPosition: (GLfloat) x : (GLfloat) y rotation: (GLfloat) r;
 -(void) updateSmoothCamera;
 
+-(void) drawText: (NSString*) text withFont: (Font*) font withColour: (GLKVector3) colour atPosition: (GLKVector2) position size: (float) size;
+-(void) drawGUITexture: (Texture*) tex position: (GLKVector2) position size: (GLKVector2) size rotation: (GLfloat) rotation;
+
 -(void) drawTexture: (Texture*) tex position: (GLKVector2) position size: (GLKVector2) size rotation: (GLfloat) rotation;
--(void) drawTextureWithoutView: (Texture*) tex position: (GLKVector2) position size: (GLKVector2) size rotation: (GLfloat) rotation;
 
 -(void) cleanup;
 

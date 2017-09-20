@@ -33,8 +33,6 @@
     self.parser.delegate = self;
     [self.parser parse];
     
-    NSLog(@"parsing");
-    
     return _tiles;
 }
 
@@ -48,7 +46,8 @@ didStartElement:(NSString *)elementName
         _currentTile = [[TileTemplate alloc] init];
         _currentTile.ID = [attributeDict valueForKey:@"id"];
     }else if([elementName isEqualToString:@"image"]){
-        _currentTile.name = [[attributeDict valueForKey:@"source"] stringByReplacingOccurrencesOfString:@".png" withString:@""];
+        NSArray* splitPath = [[attributeDict valueForKey:@"source"] componentsSeparatedByString:@"/"];
+        _currentTile.name = [[splitPath lastObject] stringByReplacingOccurrencesOfString:@".png" withString:@""];
         _currentTile.path = [attributeDict valueForKey:@"source"];
     }
     

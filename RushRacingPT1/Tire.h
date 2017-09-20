@@ -7,7 +7,10 @@
 //
 #include <Box2D/Box2D.h>
 
+#import "ViewController.h"
+
 #import <Foundation/Foundation.h>
+#import <GLKit/GLKit.h>
 
 typedef struct{
     float maxForwardSpeed;
@@ -23,6 +26,8 @@ typedef struct{
 @property (assign) float maxDriveForce;
 @property (assign) float maxLateralImpulse;
 
+@property (assign) bool driving;
+@property (assign) bool drifting;
 @property (assign) bool braking;
 
 -(id) initWithWorld: (b2World*) world;

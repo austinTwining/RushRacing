@@ -19,3 +19,15 @@
 -(void) parseTrack: (NSString*) name path: (NSURL*) xmlPath;
 
 @end
+
+@interface KrimsKramsTemplate : NSObject
+
+@property (assign) NSString* ID;
+@property (assign) float x;
+@property (assign) float y;
+@property (assign) float width;
+@property (assign) float height;
+
+-(id) init;
+
+@end
