@@ -46,9 +46,12 @@ didStartElement:(NSString *)elementName
         _currentTile = [[TileTemplate alloc] init];
         _currentTile.ID = [attributeDict valueForKey:@"id"];
     }else if([elementName isEqualToString:@"image"]){
-        NSArray* splitPath = [[attributeDict valueForKey:@"source"] componentsSeparatedByString:@"/"];
+        /*NSArray* splitPath = [[attributeDict valueForKey:@"source"] componentsSeparatedByString:@"/"];
         _currentTile.name = [[splitPath lastObject] stringByReplacingOccurrencesOfString:@".png" withString:@""];
-        _currentTile.path = [attributeDict valueForKey:@"source"];
+        _currentTile.path = [attributeDict valueForKey:@"source"];*/
+        NSString* source = [attributeDict valueForKey:@"source"];
+        _currentTile.name = source;
+        _currentTile.path = source;
     }
     
 }
