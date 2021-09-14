@@ -15,6 +15,19 @@
 @class Artist;
 @class PhysicsBodyCache;
 
+@interface TrackCollisionTemplate : NSObject
+
+@property (assign) NSArray* outside;
+@property (assign) NSArray* inside;
+@property (assign) float xOutside;
+@property (assign) float yOutside;
+@property (assign) float xInside;
+@property (assign) float yInside;
+
+-(id) init;
+
+@end
+
 @interface Track : NSObject
 
 @property (assign) NSString* name;
@@ -23,6 +36,8 @@
 
 @property (assign) int Width;
 @property (assign) int Height;
+
+@property TrackCollisionTemplate* tCollisionTemp;
 
 @property (strong, nonatomic) NSMutableDictionary* textures;
 @property (strong, nonatomic) NSMutableDictionary* tiles;

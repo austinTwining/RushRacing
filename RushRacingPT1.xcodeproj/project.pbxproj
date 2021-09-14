@@ -112,9 +112,7 @@
 		F8931BB01F25260B00748595 /* Barriers.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F8931BAD1F25260B00748595 /* Barriers.tsx */; };
 		F8931BB11F25260B00748595 /* Grounds.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F8931BAE1F25260B00748595 /* Grounds.tsx */; };
 		F8931BB21F25260B00748595 /* Tracks.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F8931BAF1F25260B00748595 /* Tracks.tsx */; };
-		F8931BB41F25493F00748595 /* Barrier_bodies.xml in Resources */ = {isa = PBXBuildFile; fileRef = F8931BB31F25493F00748595 /* Barrier_bodies.xml */; };
 		F8931BB61F254C1D00748595 /* Track.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F8931BB51F254C1D00748595 /* Track.tmx */; };
-		F8931BB81F265DC100748595 /* Track_bodies.xml in Resources */ = {isa = PBXBuildFile; fileRef = F8931BB71F265DC100748595 /* Track_bodies.xml */; };
 		F8931BBA1F266EF800748595 /* KrimsKrams.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F8931BB91F266EF800748595 /* KrimsKrams.tsx */; };
 		F8931BBC1F266F2300748595 /* Tree.png in Resources */ = {isa = PBXBuildFile; fileRef = F8931BBB1F266F2300748595 /* Tree.png */; };
 		F8931BBF1F266F4300748595 /* bottom-bleacher.png in Resources */ = {isa = PBXBuildFile; fileRef = F8931BBD1F266F4300748595 /* bottom-bleacher.png */; };
@@ -335,9 +333,7 @@
 		F8931BAD1F25260B00748595 /* Barriers.tsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Barriers.tsx; sourceTree = "<group>"; };
 		F8931BAE1F25260B00748595 /* Grounds.tsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Grounds.tsx; sourceTree = "<group>"; };
 		F8931BAF1F25260B00748595 /* Tracks.tsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tracks.tsx; sourceTree = "<group>"; };
-		F8931BB31F25493F00748595 /* Barrier_bodies.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Barrier_bodies.xml; sourceTree = "<group>"; };
 		F8931BB51F254C1D00748595 /* Track.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Track.tmx; sourceTree = "<group>"; };
-		F8931BB71F265DC100748595 /* Track_bodies.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Track_bodies.xml; sourceTree = "<group>"; };
 		F8931BB91F266EF800748595 /* KrimsKrams.tsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KrimsKrams.tsx; sourceTree = "<group>"; };
 		F8931BBB1F266F2300748595 /* Tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tree.png; sourceTree = "<group>"; };
 		F8931BBD1F266F4300748595 /* bottom-bleacher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-bleacher.png"; sourceTree = "<group>"; };
@@ -507,8 +503,6 @@
 		F816523C1F0C1A0E006B6772 /* PhysicsFiles */ = {
 			isa = PBXGroup;
 			children = (
-				F8931BB71F265DC100748595 /* Track_bodies.xml */,
-				F8931BB31F25493F00748595 /* Barrier_bodies.xml */,
 				F8ED43811F117D9400AB5A3D /* Z9-Proton_bodies.xml */,
 			);
 			name = PhysicsFiles;
@@ -1107,6 +1101,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1133,7 +1128,6 @@
 				F8931B6E1F2524DA00748595 /* down-right-barrier.png in Resources */,
 				F818F4A01F328AFA0094AAB0 /* LatoNEHEDistanceField.fnt in Resources */,
 				F8931B991F2524DA00748595 /* x-straight-start-curb.png in Resources */,
-				F8931BB41F25493F00748595 /* Barrier_bodies.xml in Resources */,
 				F8931BD61F30C85D00748595 /* font.fsh in Resources */,
 				F8931B7C1F2524DA00748595 /* grass-edge-up-right.png in Resources */,
 				F8931B931F2524DA00748595 /* x-barrier.png in Resources */,
@@ -1210,7 +1204,6 @@
 				F8931B6A1F2524DA00748595 /* down-left-large-3.png in Resources */,
 				F8FC90791F3CD7D400325D33 /* PauseButton.png in Resources */,
 				F8931B941F2524DA00748595 /* x-straight-curb-end-left.png in Resources */,
-				F8931BB81F265DC100748595 /* Track_bodies.xml in Resources */,
 				F8931BA21F2524DA00748595 /* y-straight-start-curb.png in Resources */,
 				F84858321F13C52700CC5721 /* LeftButton@3x.png in Resources */,
 				F8FC907F1F3CE51900325D33 /* WhiteButton.png in Resources */,

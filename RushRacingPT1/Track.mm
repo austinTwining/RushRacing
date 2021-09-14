@@ -18,6 +18,7 @@
         _krimskrams = [[NSMutableArray alloc] init];
         _trackTiles = [[NSMutableArray alloc] init];
         _backgroundTiles = [[NSMutableArray alloc] init];
+        _tCollisionTemp = [[TrackCollisionTemplate alloc] init];
     }
     return self;
 }
@@ -121,12 +122,8 @@
         }
     }
     
-    /*for(BarrierTemplate* bt in _barriers){
-        NSString* tileToGet = [_tiles valueForKey:bt.ID];
-        if(tileToGet != nil){
-            [pbc createBody:tileToGet withWorld:world withPosition:b2Vec2(bt.x / PTM, (bt.y) / PTM)];
-        }
-    }*/
+    NSLog(@"%f",_tCollisionTemp.xInside);
+
 }
 -(void) unload{
     for(NSString* key in _textures){
@@ -135,5 +132,15 @@
     //delete physics bodies
 }
 
+
+@end
+
+@implementation TrackCollisionTemplate
+
+-(id) init{
+    self = [super init];
+    if(self){}
+    return self;
+}
 
 @end

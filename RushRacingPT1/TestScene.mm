@@ -46,7 +46,6 @@
     pbCache = [[PhysicsBodyCache alloc] init];
     
     [pbCache parseXMLFile:[[NSBundle mainBundle] URLForResource:@"Z9-Proton_bodies" withExtension:@"xml"]];
-    [pbCache parseXMLFile:[[NSBundle mainBundle] URLForResource:@"Track_bodies" withExtension:@"xml"]];
     
     //load needed textures
     [[ViewController getResourceManager] loadTexture:@"Z9-Proton-Tire" path:@"Z9-Proton-Tire-small.png"];
@@ -117,7 +116,7 @@
     //Texture* t = [[ViewController getResourceManager] getTexture:@"x-straight"];
     //[artist drawTexture:t position:GLKVector2Make(0, 0) size:GLKVector2Make(300, 300) rotation:0];
     
-    //m_world->DrawDebugData();
+    m_world->DrawDebugData();
     
     /////*DRAW GUI TEST///////
     /*Texture* rButton = [[ViewController getResourceManager] getTexture:@"Right-Button"];

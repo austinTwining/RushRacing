@@ -81,9 +81,17 @@ didStartElement:(NSString *)elementName
     }else if([elementName isEqualToString:@"tile"]){
         //NSLog(@"tile");
         if([_currentLayer isEqualToString:@"Track"]){
-            [_currentTrack.trackTiles addObject:[attributeDict valueForKey:@"gid"]];
+            //Tiled no longer saves empty tiles as GID 0
+            //so in the case of an empty tile replace with GID 0
+            NSString* gid = [attributeDict valueForKey:@"gid"];
+            if(gid == nil) gid = @"0";
+            [_currentTrack.trackTiles addObject:gid];
         }else if ([_currentLayer isEqualToString:@"Background"]){
-            [_currentTrack.backgroundTiles addObject:[attributeDict valueForKey:@"gid"]];
+            //Tiled no longer saves empty tiles as GID 0
+            //so in the case of an empty tile replace with GID 0
+            NSString* gid = [attributeDict valueForKey:@"gid"];
+            if(gid == nil) gid = @"0";
+            [_currentTrack.backgroundTiles addObject:gid];
         }
     }else if([elementName isEqualToString:@"objectgroup"]){
         _currentLayer = [attributeDict valueForKey:@"name"];
@@ -115,6 +123,19 @@ didStartElement:(NSString *)elementName
                 _currentTrack.startPosition = GLKVector2Make(x, y);
                 _currentTrack.startRotation = GLKMathDegreesToRadians([attributeDict valueForKey:@"rotation"].floatValue);
             }
+        }else if ([_currentLayer isEqualToString:@"TrackCollision"]){
+            if([[attributeDict valueForKey:@"name"] containsString:@"Outside"]){
+                _currentTrack.tCollisionTemp.xOutside = [attributeDict valueForKey:@"x"].floatValue;
+                _currentTrack.tCollisionTemp.yOutside = [attributeDict valueForKey:@"y"].floatValue;
+            }
+            if([[attributeDict valueForKey:@"name"] containsString:@"Inside"]){
+                _currentTrack.tCollisionTemp.xInside = [attributeDict valueForKey:@"x"].floatValue;
+                _currentTrack.tCollisionTemp.yInside = [attributeDict valueForKey:@"y"].floatValue;
+            }
+        }
+    }else if([elementName isEqualToString:@"polygon"]){
+        if([_currentLayer isEqualToString:@"TrackCollision"]){
+            
         }
     }
 }
