@@ -22,6 +22,7 @@ typedef enum{
 @property Track* currentTrack;
 @property NSString* currentTrackName;
 @property NSString* currentLayer;
+@property NSString* currentSubLayer;
 
 @property NSMutableDictionary* tileSetPaths;
 
@@ -95,6 +96,9 @@ didStartElement:(NSString *)elementName
         }
     }else if([elementName isEqualToString:@"objectgroup"]){
         _currentLayer = [attributeDict valueForKey:@"name"];
+        if([_currentLayer isEqualToString:@"TrackCollision"]){
+            _currentTrack.tCollisionTemp = [[TrackCollisionTemplate alloc] init];
+        }
     }else if([elementName isEqualToString:@"object"]){
         if([_currentLayer isEqualToString:@"KrimsKrams"]){
             float x = [attributeDict valueForKey:@"x"].floatValue;
@@ -125,17 +129,37 @@ didStartElement:(NSString *)elementName
             }
         }else if ([_currentLayer isEqualToString:@"TrackCollision"]){
             if([[attributeDict valueForKey:@"name"] containsString:@"Outside"]){
+                _currentSubLayer = [attributeDict valueForKey:@"name"];
                 _currentTrack.tCollisionTemp.xOutside = [attributeDict valueForKey:@"x"].floatValue;
                 _currentTrack.tCollisionTemp.yOutside = [attributeDict valueForKey:@"y"].floatValue;
             }
             if([[attributeDict valueForKey:@"name"] containsString:@"Inside"]){
+                _currentSubLayer = [attributeDict valueForKey:@"name"];
                 _currentTrack.tCollisionTemp.xInside = [attributeDict valueForKey:@"x"].floatValue;
                 _currentTrack.tCollisionTemp.yInside = [attributeDict valueForKey:@"y"].floatValue;
             }
         }
     }else if([elementName isEqualToString:@"polygon"]){
         if([_currentLayer isEqualToString:@"TrackCollision"]){
-            
+            if([_currentSubLayer isEqualToString:@"Outside"]){
+                NSArray* rawPoints = [[attributeDict valueForKey:@"points"] componentsSeparatedByString:@" "];
+                for(NSString* point in rawPoints){
+                    NSArray* rawCoord = [point componentsSeparatedByString:@","];
+                    Vector2f* v = [[Vector2f alloc] init]; 
+                    v.x = [rawCoord.firstObject floatValue];
+                    v.y = [rawCoord.lastObject floatValue];
+                    [_currentTrack.tCollisionTemp.outside addObject:v];
+                }
+            }else if([_currentSubLayer isEqualToString:@"Inside"]){
+                NSArray* rawPoints = [[attributeDict valueForKey:@"points"] componentsSeparatedByString:@" "];
+                for(NSString* point in rawPoints){
+                    NSArray* rawCoord = [point componentsSeparatedByString:@","];
+                    Vector2f* v = [[Vector2f alloc] init];
+                    v.x = [rawCoord.firstObject floatValue];
+                    v.y = [rawCoord.lastObject floatValue];
+                    [_currentTrack.tCollisionTemp.inside addObject:v];
+                }
+            }
         }
     }
 }

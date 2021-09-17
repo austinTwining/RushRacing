@@ -17,8 +17,8 @@
 
 @interface TrackCollisionTemplate : NSObject
 
-@property (assign) NSArray* outside;
-@property (assign) NSArray* inside;
+@property (strong, nonatomic) NSMutableArray* outside;
+@property (strong, nonatomic) NSMutableArray* inside;
 @property (assign) float xOutside;
 @property (assign) float yOutside;
 @property (assign) float xInside;

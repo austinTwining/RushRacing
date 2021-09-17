@@ -122,7 +122,14 @@
         }
     }
     
-    NSLog(@"%f",_tCollisionTemp.xInside);
+    NSLog(@"OUTSIDE");
+    for(Vector2f* v in _tCollisionTemp.outside){
+        NSLog(@"X: %f | Y: %f", v.x, v.y);
+    }
+    NSLog(@"INSIDE");
+    for(Vector2f* v in _tCollisionTemp.inside){
+        NSLog(@"X: %f | Y: %f", v.x, v.y);
+    }
 
 }
 -(void) unload{
@@ -139,7 +146,10 @@
 
 -(id) init{
     self = [super init];
-    if(self){}
+    if(self){
+        _outside = [[NSMutableArray alloc] init];
+        _inside = [[NSMutableArray alloc] init];
+    }
     return self;
 }
 
