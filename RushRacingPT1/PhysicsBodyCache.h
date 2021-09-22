@@ -9,6 +9,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Artist.h"
+#import "Track.h"
+
+@class TrackCollisionTemplate;
 
 @interface PhysicsBodyCache : NSObject <NSXMLParserDelegate>
 
@@ -20,6 +23,8 @@
 -(b2Body*) createBody : (NSString*) name withWorld : (b2World*) world;
 -(b2Body*) createBody : (NSString*) name withWorld : (b2World*) world withPosition : (b2Vec2) position;
 -(b2Body*) createBody : (NSString*) name withWorld : (b2World*) world withPosition : (b2Vec2) position withRotation : (float) rotation;
+
+-(void) createPerimiterBody: (TrackCollisionTemplate*)cTemp withWorld : (b2World*) world;
 
 -(void) parseXMLFile : (NSURL*) xmlPath;
 -(void) deleteBody : (NSString*) name;

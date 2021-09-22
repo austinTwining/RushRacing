@@ -201,6 +201,58 @@
     return body;
 }
 
+-(void) createPerimiterBody: (TrackCollisionTemplate*)cTemp withWorld : (b2World*) world{
+    b2BodyDef oBodyDef;
+    oBodyDef.type = b2_staticBody;
+    oBodyDef.position = b2Vec2(cTemp.xOutside / mRatio, cTemp.yOutside / mRatio);
+    
+    b2Body* body = world->CreateBody(&oBodyDef);
+    
+    //outside
+    b2ChainShape oShape;
+    b2FixtureDef oFixDef;
+    
+    b2Vec2 oVertices[cTemp.outside.count];
+    for(int o = 0; o < cTemp.outside.count; o++){
+        Vector2f* v = [cTemp.outside objectAtIndex:o];
+        oVertices[o] = b2Vec2(v.x / mRatio, v.y / mRatio);
+    }
+    
+    oShape.CreateLoop(oVertices, cTemp.outside.count);
+    
+    oFixDef.shape = &oShape;
+    oFixDef.density = 1;
+    oFixDef.friction = 1;
+    oFixDef.restitution = 0;
+    
+    body->CreateFixture(&oFixDef);
+    
+    b2BodyDef iBodyDef;
+    iBodyDef.type = b2_staticBody;
+    iBodyDef.position = b2Vec2(cTemp.xInside / mRatio, cTemp.yInside / mRatio);
+    
+    body = world->CreateBody(&iBodyDef);
+    
+    //inside
+    b2ChainShape iShape;
+    b2FixtureDef iFixDef;
+    
+    b2Vec2 iVertices[cTemp.inside.count];
+    for(int i = 0; i < cTemp.inside.count; i++){
+        Vector2f* v = [cTemp.inside objectAtIndex:i];
+        iVertices[i] = b2Vec2(v.x / mRatio, v.y / mRatio);
+    }
+    
+    iShape.CreateLoop(iVertices, cTemp.inside.count);
+    
+    iFixDef.shape = &iShape;
+    iFixDef.density = 1;
+    iFixDef.friction = 1;
+    iFixDef.restitution = 0;
+    
+    body->CreateFixture(&iFixDef);
+}
+
 -(void) parseXMLFile : (NSURL*) xmlPath{
     self.parser = [[NSXMLParser alloc] initWithContentsOfURL:xmlPath];
     self.parser.delegate = self;

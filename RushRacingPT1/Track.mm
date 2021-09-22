@@ -112,25 +112,7 @@
         _tileSize = [[[ViewController getResourceManager] loadTexture:key path:[_textures valueForKey:key]] getTextureInfo].width;
     }
     
-    /*for(int x = 0; x < _Width; x++){
-        for(int y = 0; y < _Height; y++){
-            NSString* tileToGet = [_trackTiles objectAtIndex:(_Width * y + x)];
-            tileToGet = [_tiles valueForKey:tileToGet];
-            if(tileToGet != nil){
-                [pbc createBody:tileToGet withWorld:world withPosition:b2Vec2((200 + (x * _tileSize)) / PTM, (200 + (y * _tileSize)) / PTM)];
-            }
-        }
-    }*/
-    
-    NSLog(@"OUTSIDE");
-    for(Vector2f* v in _tCollisionTemp.outside){
-        NSLog(@"X: %f | Y: %f", v.x, v.y);
-    }
-    NSLog(@"INSIDE");
-    for(Vector2f* v in _tCollisionTemp.inside){
-        NSLog(@"X: %f | Y: %f", v.x, v.y);
-    }
-
+    [[ViewController getPhysicsBodyCache] createPerimiterBody:_tCollisionTemp withWorld:world];
 }
 -(void) unload{
     for(NSString* key in _textures){
