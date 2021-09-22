@@ -17,8 +17,6 @@
     b2World* m_world;
     DebugDraw* m_debugDraw;
     
-    PhysicsBodyCache* pbCache;
-    
     Car* car;
     
     Track* track;
@@ -43,9 +41,7 @@
     m_debugDraw->SetFlags(b2Draw::e_shapeBit + b2Draw::e_jointBit);
     m_world->SetDebugDraw(m_debugDraw);
     
-    pbCache = [[PhysicsBodyCache alloc] init];
-    
-    [pbCache parseXMLFile:[[NSBundle mainBundle] URLForResource:@"Z9-Proton_bodies" withExtension:@"xml"]];
+    [[ViewController getPhysicsBodyCache] parseXMLFile:[[NSBundle mainBundle] URLForResource:@"Z9-Proton_bodies" withExtension:@"xml"]];
     
     //load needed textures
     [[ViewController getResourceManager] loadTexture:@"Z9-Proton-Tire" path:@"Z9-Proton-Tire-small.png"];
@@ -60,9 +56,9 @@
     [[ViewController getResourceManager] loadTexture:@"PopUpBackground" path:@"PopUpBackground.png"];
     
     track = [[ViewController getTrackCache].tracks valueForKey:@"Track"];
-    [track loadWithPhysics:pbCache :m_world];
+    [track loadWithPhysics:m_world];
     
-    car = [[Z9Proton alloc] initWithWorld:m_world withCache:pbCache withPosition:b2Vec2(track.startPosition.x / PTM, track.startPosition.y / PTM) withRotation:track.startRotation];
+    car = [[Z9Proton alloc] initWithWorld:m_world withPosition:b2Vec2(track.startPosition.x / PTM, track.startPosition.y / PTM) withRotation:track.startRotation];
     
     car.driving = false;
     [ViewController getDirector].paused = false;
@@ -219,6 +215,7 @@
 -(void) cleanup{
     delete m_world;
     delete m_debugDraw;
+    [[ViewController getPhysicsBodyCache] deleteAllBodies];
     [[ViewController getResourceManager] deleteTexture:@"Z9-Proton-Tire"];
     [[ViewController getResourceManager] deleteTexture:@"Z9-Proton"];
     [[ViewController getResourceManager] deleteTexture:@"PauseButton"];

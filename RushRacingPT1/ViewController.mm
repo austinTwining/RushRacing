@@ -31,6 +31,7 @@
 
 static ResourceManager* resourceManager;
 static TrackCache* tCache;
+static PhysicsBodyCache* pbCache;
 static int scale;
 static Director* director;
 
@@ -100,6 +101,8 @@ static Director* director;
     artist = [[Artist alloc] initWithShader: [resourceManager getShader:@"main"] halfScreenWidth:halfScreenWidth halfScreenHeight:halfScreenHeight];
     director = [[Director alloc] init];
     
+    pbCache = [[PhysicsBodyCache alloc] init];
+    
     //track cache
     tCache = [[TrackCache alloc] init];
     [tCache parseTrack:@"Track"
@@ -150,6 +153,9 @@ static Director* director;
 
 +(ResourceManager*) getResourceManager{
     return resourceManager;
+}
++(PhysicsBodyCache*) getPhysicsBodyCache{
+    return pbCache;
 }
 +(TrackCache*) getTrackCache{
     return tCache;

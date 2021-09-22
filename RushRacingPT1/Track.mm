@@ -107,12 +107,12 @@
         //_tileSize = 200;
     }
 }
--(void) loadWithPhysics: (PhysicsBodyCache*) pbc : (b2World*) world{
+-(void) loadWithPhysics: (b2World*) world{
     for(NSString* key in _textures){
         _tileSize = [[[ViewController getResourceManager] loadTexture:key path:[_textures valueForKey:key]] getTextureInfo].width;
     }
     
-    for(int x = 0; x < _Width; x++){
+    /*for(int x = 0; x < _Width; x++){
         for(int y = 0; y < _Height; y++){
             NSString* tileToGet = [_trackTiles objectAtIndex:(_Width * y + x)];
             tileToGet = [_tiles valueForKey:tileToGet];
@@ -120,7 +120,7 @@
                 [pbc createBody:tileToGet withWorld:world withPosition:b2Vec2((200 + (x * _tileSize)) / PTM, (200 + (y * _tileSize)) / PTM)];
             }
         }
-    }
+    }*/
     
     NSLog(@"OUTSIDE");
     for(Vector2f* v in _tCollisionTemp.outside){

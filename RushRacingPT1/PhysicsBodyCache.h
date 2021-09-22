@@ -22,6 +22,8 @@
 -(b2Body*) createBody : (NSString*) name withWorld : (b2World*) world withPosition : (b2Vec2) position withRotation : (float) rotation;
 
 -(void) parseXMLFile : (NSURL*) xmlPath;
+-(void) deleteBody : (NSString*) name;
+-(void) deleteAllBodies;
 
 @end
 

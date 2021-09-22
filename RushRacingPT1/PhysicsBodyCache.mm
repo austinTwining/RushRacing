@@ -266,6 +266,13 @@ didStartElement:(NSString *)elementName
     
 }
 
+-(void) deleteBody:(NSString *)name{
+    [_bodies removeObjectForKey:name];
+}
+-(void) deleteAllBodies{
+    [_bodies removeAllObjects];
+}
+
 @end
 
 @implementation BodyTemplate

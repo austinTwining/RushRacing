@@ -13,6 +13,7 @@
 #import "TrackCache.h"
 
 @class TrackCache;
+@class PhysicsBodyCache;
 @class Director;
 
 @interface ViewController : GLKViewController
@@ -21,6 +22,7 @@
 @property (strong, nonatomic) GLKBaseEffect *effect;
 
 +(ResourceManager*) getResourceManager;
++(PhysicsBodyCache*) getPhysicsBodyCache;
 +(TrackCache*) getTrackCache;
 +(Director*) getDirector;
 +(int) getScale;

@@ -57,7 +57,7 @@
 -(void) draw : (Artist*) artist withPosition : (GLKVector2) position;
 
 -(void) load;
--(void) loadWithPhysics: (PhysicsBodyCache*) pbc : (b2World*) world;
+-(void) loadWithPhysics : (b2World*) world;
 -(void) unload;
 
 @end
