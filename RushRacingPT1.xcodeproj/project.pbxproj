@@ -31,6 +31,7 @@
 		F84858491F143C5C00CC5721 /* TrackCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = F84858481F143C5C00CC5721 /* TrackCache.mm */; };
 		F848584C1F153E9800CC5721 /* Track.mm in Sources */ = {isa = PBXBuildFile; fileRef = F848584B1F153E9800CC5721 /* Track.mm */; };
 		F84858611F17AB6B00CC5721 /* TileSetParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F84858601F17AB6B00CC5721 /* TileSetParser.m */; };
+		F85A228F26FBAAAD00EFDB13 /* TestTrack.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F85A228E26FBAAAD00EFDB13 /* TestTrack.tmx */; };
 		F85F2C721F54C38F00BDEE6D /* AsapNEHE.fnt in Resources */ = {isa = PBXBuildFile; fileRef = F85F2C701F54C38F00BDEE6D /* AsapNEHE.fnt */; };
 		F85F2C731F54C38F00BDEE6D /* AsapNEHE.png in Resources */ = {isa = PBXBuildFile; fileRef = F85F2C711F54C38F00BDEE6D /* AsapNEHE.png */; };
 		F85F2C751F54C4AE00BDEE6D /* Logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F85F2C741F54C4AE00BDEE6D /* Logo@2x.png */; };
@@ -247,6 +248,7 @@
 		F848584B1F153E9800CC5721 /* Track.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Track.mm; sourceTree = "<group>"; };
 		F848585F1F17AB6B00CC5721 /* TileSetParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileSetParser.h; sourceTree = "<group>"; };
 		F84858601F17AB6B00CC5721 /* TileSetParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileSetParser.m; sourceTree = "<group>"; };
+		F85A228E26FBAAAD00EFDB13 /* TestTrack.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestTrack.tmx; sourceTree = "<group>"; };
 		F85F2C701F54C38F00BDEE6D /* AsapNEHE.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AsapNEHE.fnt; sourceTree = "<group>"; };
 		F85F2C711F54C38F00BDEE6D /* AsapNEHE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AsapNEHE.png; sourceTree = "<group>"; };
 		F85F2C741F54C4AE00BDEE6D /* Logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo@2x.png"; sourceTree = "<group>"; };
@@ -644,6 +646,7 @@
 		F8931BA51F2524F100748595 /* Tracks */ = {
 			isa = PBXGroup;
 			children = (
+				F85A228E26FBAAAD00EFDB13 /* TestTrack.tmx */,
 				F8931BB51F254C1D00748595 /* Track.tmx */,
 			);
 			name = Tracks;
@@ -1227,6 +1230,7 @@
 				F8931B761F2524DA00748595 /* grass-edge-down-left.png in Resources */,
 				F8FC90821F3CE87500325D33 /* PopUpBackground.png in Resources */,
 				F8931B8C1F2524DA00748595 /* up-right-barrier.png in Resources */,
+				F85A228F26FBAAAD00EFDB13 /* TestTrack.tmx in Resources */,
 				F8931BC61F267BC900748595 /* Skid.png in Resources */,
 				F8A26E351E9D807700FE6DB6 /* Shader.vsh in Resources */,
 			);
